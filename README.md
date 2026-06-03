@@ -6,7 +6,7 @@ desenvolvida como projeto de extensão do IME-USP.
 ## O que é
 
 Quiz de compatibilidade que recomenda cursos universitários com base no perfil do
-aluno, usando dados reais do SISU 2024, CAGED 2023 e CBO/MTE.
+aluno.
 
 ## Motivação
 
