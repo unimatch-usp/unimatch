@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -72,24 +71,23 @@ body::before {
   padding: 24px 20px 60px;
 }
 
+/* ── TOPBAR ── */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
 }
-
 .logo {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text);
+  cursor: pointer;
 }
 .logo span { color: var(--accent); }
-
 .topbar-actions { display: flex; gap: 10px; align-items: center; }
-
 .icon-btn {
   width: 40px; height: 40px;
   border: 1px solid var(--border);
@@ -102,6 +100,40 @@ body::before {
 }
 .icon-btn:hover { border-color: var(--border-hover); color: var(--text); transform: scale(1.05); }
 
+/* ── NAV TABS ── */
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: 28px;
+}
+.nav-tab {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── PROGRESS ── */
 .progress-wrap { margin-bottom: 10px; }
 .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .progress-label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
@@ -116,6 +148,7 @@ body::before {
   box-shadow: 0 0 10px var(--accent2);
 }
 
+/* ── CARD ── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -124,13 +157,13 @@ body::before {
   transition: all var(--transition);
 }
 
-/* START */
-.start-hero { text-align: center; padding: 20px 0 32px; }
-.start-icon { font-size: 4rem; margin-bottom: 20px; display: block; animation: float 3s ease-in-out infinite; }
+/* ── HOME ── */
+.home-hero { text-align: center; padding: 20px 0 32px; }
+.home-icon { font-size: 4rem; margin-bottom: 20px; display: block; animation: float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-.start-title { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 16px; line-height: 1.1; }
-.start-title em { font-style: normal; color: var(--accent); }
-.start-desc { color: var(--text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto 32px; font-weight: 300; }
+.home-title { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 16px; line-height: 1.1; }
+.home-title em { font-style: normal; color: var(--accent); }
+.home-desc { color: var(--text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto 32px; font-weight: 300; }
 .stats-row { display: flex; gap: 12px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
 .stat-pill {
   background: var(--surface2); border: 1px solid var(--border); border-radius: 99px;
@@ -138,8 +171,40 @@ body::before {
   display: flex; align-items: center; gap: 7px;
 }
 .stat-pill strong { color: var(--accent); font-weight: 700; }
+.home-cta-row { display: flex; gap: 12px; flex-direction: column; }
 
-/* Data notice banner */
+/* ── ABOUT ── */
+.about-section { margin-top: 40px; }
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+}
+.about-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.about-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+.about-text a { color: var(--accent); text-decoration: none; }
+.contact-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(124,106,247,0.1); border: 1.5px solid rgba(124,106,247,0.2);
+  color: var(--accent); border-radius: var(--radius-sm);
+  padding: 10px 18px; font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+}
+.contact-btn:hover { background: rgba(124,106,247,0.2); border-color: var(--accent); }
+
+/* ── DATA NOTICE ── */
 .data-notice {
   background: rgba(124,106,247,0.07);
   border: 1px solid rgba(124,106,247,0.2);
@@ -155,7 +220,7 @@ body::before {
 }
 .data-notice-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
 
-/* BUTTONS */
+/* ── BUTTONS ── */
 .btn-primary {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm);
@@ -168,7 +233,13 @@ body::before {
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,106,247,0.35); }
 .btn-primary:active { transform: translateY(0); }
 .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
-
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 16px 32px; font-family: var(--font-body);
+  font-size: 1rem; font-weight: 500; cursor: pointer; transition: all var(--transition); width: 100%;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 .btn-ghost {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   background: transparent; color: var(--text-muted); border: 1px solid var(--border);
@@ -177,7 +248,7 @@ body::before {
 }
 .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
 
-/* QUESTION */
+/* ── QUESTION ── */
 .question-header { margin-bottom: 28px; }
 .question-num {
   font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
@@ -185,7 +256,6 @@ body::before {
 }
 .question-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .question-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.3; color: var(--text); }
-
 .options-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
 .option-btn {
   display: flex; align-items: center; gap: 14px; padding: 16px 20px;
@@ -211,12 +281,11 @@ body::before {
   transition: all var(--transition); font-size: 0.7rem; color: transparent;
 }
 .option-btn.selected .option-check { background: var(--accent); border-color: var(--accent); color: #fff; }
-
 .question-nav { display: flex; gap: 10px; align-items: center; }
 .question-nav .btn-ghost { width: auto; flex-shrink: 0; }
 .question-nav .btn-primary { flex: 1; }
 
-/* LOADING */
+/* ── LOADING ── */
 .loading-wrap { text-align: center; padding: 40px 20px; }
 .loading-animation { width: 64px; height: 64px; margin: 0 auto 24px; position: relative; }
 .loading-animation::before, .loading-animation::after { content: ''; position: absolute; border-radius: 50%; }
@@ -233,11 +302,10 @@ body::before {
 .loading-step.done .step-dot { background: var(--success); }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-/* RESULTS */
+/* ── RESULTS ── */
 .results-hero { margin-bottom: 28px; }
 .results-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
 .results-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 12px; }
-
 .profile-summary {
   background: linear-gradient(135deg, rgba(124,106,247,0.1), rgba(106,247,178,0.05));
   border: 1px solid rgba(124,106,247,0.2);
@@ -246,7 +314,6 @@ body::before {
   font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
 }
 .profile-summary strong { color: var(--text); font-weight: 600; }
-
 .profile-dims { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
 .dim-row { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; }
 .dim-label { width: 110px; color: var(--text-dim); flex-shrink: 0; text-align: right; }
@@ -254,7 +321,7 @@ body::before {
 .dim-fill { height: 100%; border-radius: 99px; transition: width 1s cubic-bezier(0.4,0,0.2,1) 0.3s; }
 .dim-val { width: 28px; font-size: 0.72rem; color: var(--text-dim); text-align: right; }
 
-/* Region selector */
+/* ── EXPLORAR / REGION ── */
 .region-row {
   display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
   padding: 10px 14px; background: var(--surface2); border-radius: var(--radius-sm);
@@ -268,7 +335,6 @@ body::before {
 }
 .region-select:focus { border-color: var(--accent); }
 .region-note { font-size: 0.75rem; color: var(--text-dim); margin-left: auto; }
-
 .search-wrap { position: relative; margin-bottom: 14px; }
 .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.9rem; pointer-events: none; }
 .search-input {
@@ -279,7 +345,6 @@ body::before {
 }
 .search-input:focus { border-color: var(--accent); background: var(--surface); }
 .search-input::placeholder { color: var(--text-dim); }
-
 .filters-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
 .filter-chip {
   padding: 7px 16px; border: 1.5px solid var(--border); background: transparent;
@@ -288,11 +353,10 @@ body::before {
 }
 .filter-chip:hover { border-color: var(--border-hover); color: var(--text); }
 .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-
 .results-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 0.82rem; color: var(--text-dim); }
 .results-count strong { color: var(--accent); }
 
-/* COURSE CARDS */
+/* ── COURSE CARDS ── */
 .course-list { display: flex; flex-direction: column; gap: 14px; }
 .course-card {
   background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius);
@@ -300,22 +364,18 @@ body::before {
 }
 @keyframes slideIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 .course-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
-
 .course-card-header { display: flex; align-items: flex-start; gap: 14px; padding: 20px 20px 16px; cursor: pointer; }
 .course-rank { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--border); line-height: 1; flex-shrink: 0; width: 36px; text-align: right; }
 .course-rank.top { color: var(--accent2); }
 .course-main { flex: 1; min-width: 0; }
 .course-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.3; }
 .course-meta-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-
 .compat-badge { font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: 0.03em; }
 .compat-badge.high { background: rgba(106,247,178,0.15); color: var(--success); }
 .compat-badge.medium { background: rgba(247,195,106,0.15); color: var(--warning); }
 .compat-badge.low { background: rgba(247,106,106,0.15); color: var(--danger); }
-
 .course-area-tag { font-size: 0.75rem; color: var(--text-dim); font-weight: 400; }
 .course-actions { display: flex; gap: 6px; flex-shrink: 0; }
-
 .fav-btn, .expand-btn {
   width: 34px; height: 34px; border: 1px solid var(--border); background: var(--surface2);
   border-radius: 8px; display: flex; align-items: center; justify-content: center;
@@ -325,25 +385,18 @@ body::before {
 .fav-btn.favorited { background: rgba(247,106,106,0.1); border-color: rgba(247,106,106,0.4); color: #f76a6a; }
 .expand-btn:hover { border-color: var(--border-hover); color: var(--text); }
 .expand-btn.open { transform: rotate(180deg); }
-
 .score-bar-wrap { padding: 0 20px 16px 72px; }
 .score-bar-track { height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; }
 .score-bar-fill { height: 100%; border-radius: 99px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1) 0.2s; background: linear-gradient(90deg, var(--accent), var(--accent3)); }
-
 .course-body { border-top: 1px solid var(--border); overflow: hidden; max-height: 0; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
 .course-body.open { max-height: 900px; }
 .course-body-inner { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
-
 .match-breakdown {
   background: linear-gradient(135deg, rgba(124,106,247,0.08), transparent);
   border: 1px solid rgba(124,106,247,0.15);
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  border-radius: var(--radius-sm); padding: 14px 16px;
 }
-.match-breakdown-title {
-  font-weight: 600; color: var(--accent); margin-bottom: 10px;
-  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
-}
+.match-breakdown-title { font-weight: 600; color: var(--accent); margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .match-factors { display: flex; flex-direction: column; gap: 6px; }
 .match-factor { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; }
 .mf-icon { font-size: 0.9rem; width: 20px; text-align: center; flex-shrink: 0; }
@@ -351,7 +404,6 @@ body::before {
 .mf-bar { width: 80px; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; flex-shrink: 0; }
 .mf-bar-fill { height: 100%; border-radius: 99px; transition: width 0.8s ease 0.3s; }
 .mf-val { width: 32px; text-align: right; font-size: 0.75rem; color: var(--text-dim); flex-shrink: 0; }
-
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .info-item { background: var(--surface2); border-radius: var(--radius-sm); padding: 12px 14px; }
 .info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); font-weight: 500; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
@@ -360,21 +412,14 @@ body::before {
 .desc-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
 .tags-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag { background: rgba(124,106,247,0.1); color: var(--accent); border: 1px solid rgba(124,106,247,0.2); padding: 4px 12px; border-radius: 99px; font-size: 0.78rem; font-weight: 500; }
-
-/* SISU data source tooltip */
-.sisu-source {
-  display: inline-flex; align-items: center; gap: 4px;
-}
+.sisu-source { display: inline-flex; align-items: center; gap: 4px; }
 .sisu-info {
   display: inline-flex; align-items: center; justify-content: center;
   width: 14px; height: 14px; border-radius: 50%;
   background: rgba(124,106,247,0.2); color: var(--accent);
-  font-size: 0.65rem; font-weight: 700; cursor: help;
-  position: relative;
+  font-size: 0.65rem; font-weight: 700; cursor: help; position: relative;
 }
-.sisu-info:hover .sisu-tooltip {
-  opacity: 1; pointer-events: auto; transform: translateY(0);
-}
+.sisu-info:hover .sisu-tooltip { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .sisu-tooltip {
   position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px);
   background: var(--surface); border: 1px solid var(--border);
@@ -384,18 +429,9 @@ body::before {
   box-shadow: 0 8px 24px rgba(0,0,0,0.2); z-index: 10;
   font-weight: 400; text-transform: none; letter-spacing: 0;
 }
-.sisu-tooltip::after {
-  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  border: 5px solid transparent; border-top-color: var(--border);
-}
+.sisu-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--border); }
 .sisu-adjusted { color: var(--accent2); font-size: 0.72rem; font-weight: 500; }
-/* FIX 4 — estimated note badge */
-.sisu-est-badge {
-  font-size: 0.68rem; font-weight: 600; padding: 1px 6px;
-  border-radius: 4px; background: rgba(247,178,106,0.15);
-  color: var(--accent2); letter-spacing: 0.02em;
-}
-
+.sisu-est-badge { font-size: 0.68rem; font-weight: 600; padding: 1px 6px; border-radius: 4px; background: rgba(247,178,106,0.15); color: var(--accent2); letter-spacing: 0.02em; }
 .emp-badge { font-size: 0.8rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
 .emp-badge.muitoalta, .emp-badge.muitoalto { background: rgba(106,247,178,0.15); color: #6af7b2; }
 .emp-badge.alta { background: rgba(106,247,178,0.1); color: #98f7c8; }
@@ -405,14 +441,8 @@ body::before {
 .dem-estavel, .dem-estável { color: var(--text-muted); }
 .dem-competitiva { color: #f7b26a; }
 .dem-alta { color: #6af7b2; }
-
-/* Data source footer in card */
-.data-source-footer {
-  font-size: 0.73rem; color: var(--text-dim); padding-top: 12px;
-  border-top: 1px solid var(--border); line-height: 1.5;
-}
+.data-source-footer { font-size: 0.73rem; color: var(--text-dim); padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.5; }
 .data-source-footer span { color: var(--text-muted); }
-
 .show-more-wrap { text-align: center; margin-top: 20px; }
 .show-more-btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -421,16 +451,11 @@ body::before {
   font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all var(--transition);
 }
 .show-more-btn:hover { border-color: var(--accent); color: var(--accent); }
-
 .section-divider { height: 1px; background: var(--border); margin: 32px 0; }
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 .section-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 .section-count { background: rgba(247,106,106,0.15); color: #f76a6a; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; }
-
-/* FIX 5 — Share button row */
-.share-row {
-  display: flex; gap: 10px; margin-top: 16px; justify-content: center; flex-wrap: wrap;
-}
+.share-row { display: flex; gap: 10px; margin-top: 16px; justify-content: center; flex-wrap: wrap; }
 .share-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: rgba(124,106,247,0.1); border: 1.5px solid rgba(124,106,247,0.3);
@@ -439,11 +464,11 @@ body::before {
   font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all var(--transition);
 }
 .share-btn:hover { background: rgba(124,106,247,0.2); border-color: var(--accent); }
-
 .bottom-actions { display: flex; gap: 12px; margin-top: 32px; }
 .bottom-actions .btn-primary { flex: 1; background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
 .bottom-actions .btn-primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+/* ── TOAST ── */
 .toast-wrap {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
   z-index: 1000; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
@@ -458,13 +483,14 @@ body::before {
 
 @media (max-width: 560px) {
   .card { padding: 20px; }
-  .start-title { font-size: 1.7rem; }
+  .home-title { font-size: 1.7rem; }
   .question-text { font-size: 1.2rem; }
   .info-grid { grid-template-columns: 1fr; }
   .bottom-actions { flex-direction: column; }
   .results-title { font-size: 1.4rem; }
   .dim-label { width: 80px; font-size: 0.7rem; }
   .region-note { display: none; }
+  .nav-tab span.tab-label { display: none; }
 }
 
 .hidden { display: none !important; }
@@ -474,13 +500,21 @@ body::before {
 <div class="app">
 
   <div class="topbar">
-    <div class="logo">Uni<span>Match</span></div>
+    <div class="logo" id="logo-btn">Uni<span>Match</span></div>
     <div class="topbar-actions">
       <button class="icon-btn" id="theme-btn" title="Alternar tema">☀️</button>
     </div>
   </div>
 
-  <div class="progress-wrap" id="progress-wrap">
+  <!-- NAV TABS -->
+  <nav class="nav-tabs" id="main-nav">
+    <button class="nav-tab active" data-tab="home">🏠 <span class="tab-label">Início</span></button>
+    <button class="nav-tab" data-tab="quiz">✦ <span class="tab-label">Quiz</span></button>
+    <button class="nav-tab" data-tab="explorar">🔍 <span class="tab-label">Explorar</span></button>
+    <button class="nav-tab" data-tab="sobre">ℹ️ <span class="tab-label">Sobre</span></button>
+  </nav>
+
+  <div class="progress-wrap" id="progress-wrap" style="display:none">
     <div class="progress-meta">
       <span class="progress-label" id="progress-label">Início</span>
       <span class="progress-label" id="progress-pct">0%</span>
@@ -490,121 +524,209 @@ body::before {
     </div>
   </div>
 
-  <!-- START -->
-  <div class="card" id="start-screen">
-    <div class="start-hero">
-      <span class="start-icon">🎓</span>
-      <h1 class="start-title">Encontre seu curso <em>ideal</em></h1>
-      <p class="start-desc">10 perguntas. Um sistema de compatibilidade multidimensional. Dados reais do SISU 2024 e do mercado de trabalho.</p>
-      <div class="stats-row">
-        <div class="stat-pill">✦ <strong>90</strong> cursos mapeados</div>
-        <div class="stat-pill">📊 <strong>SISU</strong> 2024 real</div>
-        <div class="stat-pill">⚡ <strong>~3 min</strong></div>
-      </div>
-      <button class="btn-primary" id="start-btn">Começar agora →</button>
-    </div>
-  </div>
-
-  <!-- QUESTION -->
-  <div class="card hidden" id="question-screen" role="main" aria-live="polite">
-    <div class="question-header">
-      <div class="question-num" id="question-num">Pergunta 1 de 10</div>
-      <h2 class="question-text" id="question-text"></h2>
-    </div>
-    <div class="options-grid" id="options-grid" role="listbox"></div>
-    <div class="question-nav">
-      <button class="btn-ghost" id="back-btn">← Voltar</button>
-      <button class="btn-primary" id="next-btn" disabled>Próxima →</button>
-    </div>
-  </div>
-
-  <!-- LOADING -->
-  <div class="card hidden" id="loading-screen" aria-live="polite">
-    <div class="loading-wrap">
-      <div class="loading-animation"></div>
-      <h2 class="loading-title">Calculando seu perfil…</h2>
-      <div class="loading-steps" id="loading-steps">
-        <div class="loading-step active" id="step-0"><div class="step-dot"></div> Construindo vetor de perfil</div>
-        <div class="loading-step" id="step-1"><div class="step-dot"></div> Calculando compatibilidade dimensional</div>
-        <div class="loading-step" id="step-2"><div class="step-dot"></div> Verificando dados de mercado e SISU</div>
-        <div class="loading-step" id="step-3"><div class="step-dot"></div> Ordenando recomendações finais</div>
+  <!-- ══ HOME ══ -->
+  <div id="home-screen">
+    <div class="card">
+      <div class="home-hero">
+        <span class="home-icon">🎓</span>
+        <h1 class="home-title">O seu futuro na <em>universidade pública</em> começa aqui</h1>
+        <p class="home-desc">Descubra qual curso combina com você usando dados reais do SISU 2024. Gratuito, feito para alunos de escolas públicas.</p>
+        <div class="stats-row">
+          <div class="stat-pill">✦ <strong>97</strong> cursos da USP</div>
+          <div class="stat-pill">📊 <strong>SISU</strong> 2024 real</div>
+          <div class="stat-pill">⚡ <strong>~3 min</strong></div>
+        </div>
+        <div class="home-cta-row">
+          <button class="btn-primary" id="home-quiz-btn">✦ Fazer o Quiz e Encontrar meu Curso</button>
+          <button class="btn-secondary" id="home-explorar-btn">🔍 Explorar Cursos</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- RESULTS -->
-  <div class="hidden" id="result-screen">
-    <div class="results-hero">
-      <div class="results-eyebrow">✦ Seus resultados</div>
-      <h2 class="results-title">Cursos compatíveis com você</h2>
-      <div class="profile-summary" id="profile-summary">Carregando...</div>
+  <!-- ══ QUIZ ══ -->
+  <div class="hidden" id="quiz-screen">
+    <!-- START -->
+    <div class="card" id="start-screen">
+      <div class="home-hero">
+        <span class="home-icon">✦</span>
+        <h1 class="home-title">Encontre seu curso <em>ideal</em></h1>
+        <p class="home-desc">10 perguntas. Um sistema de compatibilidade multidimensional. Dados reais do SISU 2024 e do mercado de trabalho.</p>
+        <div class="stats-row">
+          <div class="stat-pill">✦ <strong>97</strong> cursos mapeados</div>
+          <div class="stat-pill">📊 <strong>SISU</strong> 2024 real</div>
+          <div class="stat-pill">⚡ <strong>~3 min</strong></div>
+        </div>
+        <button class="btn-primary" id="start-btn">Começar agora →</button>
+      </div>
     </div>
+    <!-- QUESTION -->
+    <div class="card hidden" id="question-screen" role="main" aria-live="polite">
+      <div class="question-header">
+        <div class="question-num" id="question-num">Pergunta 1 de 10</div>
+        <h2 class="question-text" id="question-text"></h2>
+      </div>
+      <div class="options-grid" id="options-grid" role="listbox"></div>
+      <div class="question-nav">
+        <button class="btn-ghost" id="back-btn">← Voltar</button>
+        <button class="btn-primary" id="next-btn" disabled>Próxima →</button>
+      </div>
+    </div>
+    <!-- LOADING -->
+    <div class="card hidden" id="loading-screen" aria-live="polite">
+      <div class="loading-wrap">
+        <div class="loading-animation"></div>
+        <h2 class="loading-title">Calculando seu perfil…</h2>
+        <div class="loading-steps" id="loading-steps">
+          <div class="loading-step active" id="step-0"><div class="step-dot"></div> Construindo vetor de perfil</div>
+          <div class="loading-step" id="step-1"><div class="step-dot"></div> Calculando compatibilidade dimensional</div>
+          <div class="loading-step" id="step-2"><div class="step-dot"></div> Verificando dados de mercado e SISU</div>
+          <div class="loading-step" id="step-3"><div class="step-dot"></div> Ordenando recomendações finais</div>
+        </div>
+      </div>
+    </div>
+    <!-- RESULTS -->
+    <div class="hidden" id="result-screen">
+      <div class="results-hero">
+        <div class="results-eyebrow">✦ Seus resultados</div>
+        <h2 class="results-title">Cursos compatíveis com você</h2>
+        <div class="profile-summary" id="profile-summary">Carregando...</div>
+      </div>
+      <div class="card" style="padding:20px;margin-bottom:16px;">
+        <div class="region-row">
+          <span class="region-label">📍 Sua região:</span>
+          <select class="region-select" id="region-select-result">
+            <option value="sudeste">Sudeste (SP, RJ, MG, ES)</option>
+            <option value="sul">Sul (RS, PR, SC)</option>
+            <option value="centroOeste">Centro-Oeste (GO, MT, MS, DF)</option>
+            <option value="nordeste">Nordeste (BA, CE, PE e demais)</option>
+            <option value="norte">Norte (AM, PA e demais)</option>
+          </select>
+          <span class="region-note">Ajusta notas de corte para universidades da região</span>
+        </div>
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="search" class="search-input" id="search-input-result" placeholder="Buscar curso, área ou carreira...">
+        </div>
+        <div class="filters-row">
+          <button class="filter-chip active" data-filter="all">Todos</button>
+          <button class="filter-chip" data-filter="high">Alta compat.</button>
+          <button class="filter-chip" data-filter="medium">Média compat.</button>
+          <button class="filter-chip" data-filter="4anos">4 anos</button>
+          <button class="filter-chip" data-filter="5anos">5 anos</button>
+          <button class="filter-chip" data-filter="salary">Maior salário</button>
+          <button class="filter-chip" data-filter="emp">Empregabilidade</button>
+        </div>
+        <div class="results-meta">
+          <div class="results-count" id="results-count"></div>
+        </div>
+        <div class="course-list" id="course-list" aria-live="polite"></div>
+        <div class="show-more-wrap hidden" id="show-more-wrap">
+          <button class="show-more-btn" id="show-more-btn">Ver todos os cursos ↓</button>
+        </div>
+      </div>
+      <div class="share-row">
+        <button class="share-btn" id="share-btn">🔗 Copiar link dos resultados</button>
+      </div>
+      <div class="hidden" id="favorites-section">
+        <div class="section-divider"></div>
+        <div class="section-header">
+          <div class="section-title">❤️ Favoritos <span class="section-count" id="fav-count">0</span></div>
+          <button class="btn-ghost" id="clear-fav-btn" style="padding:8px 14px;font-size:0.8rem;">Limpar</button>
+        </div>
+        <div class="course-list" id="fav-list"></div>
+      </div>
+      <div class="data-notice" style="margin-top:24px;">
+        <span class="data-notice-icon">ℹ️</span>
+        <span>
+          <strong>Fontes dos dados:</strong> Notas de corte do <strong>SISU 2024</strong> (1ª chamada, ampla concorrência).
+          Salários e empregabilidade: <strong>CAGED 2023</strong> e <strong>CBO/MTE</strong>.
+          Valores são médias nacionais e podem variar por estado, setor e experiência.
+        </span>
+      </div>
+      <div class="bottom-actions">
+        <button class="btn-primary" id="restart-btn">↩ Refazer o quiz</button>
+      </div>
+    </div>
+  </div>
 
-    <div class="card" style="padding:20px;margin-bottom:16px;">
-
-      <!-- Region selector -->
+  <!-- ══ EXPLORAR ══ -->
+  <div class="hidden" id="explorar-screen">
+    <div class="card" style="padding:20px;">
+      <div style="margin-bottom:20px;">
+        <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:6px;">Explorar Cursos</div>
+        <div style="font-size:0.88rem;color:var(--text-muted);">Todos os cursos de graduação da USP com dados de mercado e SISU.</div>
+      </div>
       <div class="region-row">
-        <span class="region-label">📍 Sua região:</span>
-        <select class="region-select" id="region-select">
-          <option value="sudeste">Sudeste (SP, RJ, MG, ES)</option>
-          <option value="sul">Sul (RS, PR, SC)</option>
-          <option value="centroOeste">Centro-Oeste (GO, MT, MS, DF)</option>
-          <option value="nordeste">Nordeste (BA, CE, PE e demais)</option>
-          <option value="norte">Norte (AM, PA e demais)</option>
+        <span class="region-label">📍 Região:</span>
+        <select class="region-select" id="region-select-explorar">
+          <option value="sudeste">Sudeste</option>
+          <option value="sul">Sul</option>
+          <option value="centroOeste">Centro-Oeste</option>
+          <option value="nordeste">Nordeste</option>
+          <option value="norte">Norte</option>
         </select>
-        <span class="region-note">Ajusta notas de corte para universidades da região</span>
       </div>
-
       <div class="search-wrap">
         <span class="search-icon">🔍</span>
-        <input type="search" class="search-input" id="search-input" placeholder="Buscar curso, área ou carreira...">
+        <input type="search" class="search-input" id="search-explorar" placeholder="Buscar por curso, área ou carreira...">
       </div>
       <div class="filters-row">
-        <button class="filter-chip active" data-filter="all">Todos</button>
-        <button class="filter-chip" data-filter="high">Alta compat.</button>
-        <button class="filter-chip" data-filter="medium">Média compat.</button>
-        <button class="filter-chip" data-filter="4anos">4 anos</button>
-        <button class="filter-chip" data-filter="5anos">5 anos</button>
-        <button class="filter-chip" data-filter="salary">Maior salário</button>
-        <button class="filter-chip" data-filter="emp">Empregabilidade</button>
+        <button class="filter-chip-exp active" data-filter="all">Todos</button>
+        <button class="filter-chip-exp" data-filter="saude">🏥 Saúde</button>
+        <button class="filter-chip-exp" data-filter="exatas">🔬 Exatas</button>
+        <button class="filter-chip-exp" data-filter="tecnologia">💻 Tecnologia</button>
+        <button class="filter-chip-exp" data-filter="humanas">👥 Humanas</button>
+        <button class="filter-chip-exp" data-filter="negocios">📊 Negócios</button>
+        <button class="filter-chip-exp" data-filter="artes">🎨 Artes</button>
+        <button class="filter-chip-exp" data-filter="ambiental">🌿 Ambiental</button>
+        <button class="filter-chip-exp" data-filter="salary">💰 Maior salário</button>
       </div>
       <div class="results-meta">
-        <div class="results-count" id="results-count"></div>
+        <div class="results-count" id="explorar-count"></div>
       </div>
-      <div class="course-list" id="course-list" aria-live="polite"></div>
-      <div class="show-more-wrap hidden" id="show-more-wrap">
-        <button class="show-more-btn" id="show-more-btn">Ver todos os cursos ↓</button>
+      <div class="course-list" id="explorar-list"></div>
+      <div class="show-more-wrap hidden" id="explorar-show-more-wrap">
+        <button class="show-more-btn" id="explorar-show-more-btn">Ver mais cursos ↓</button>
       </div>
     </div>
+  </div>
 
-    <!-- FIX 5 — Share row -->
-    <div class="share-row">
-      <button class="share-btn" id="share-btn">🔗 Copiar link dos resultados</button>
+  <!-- ══ SOBRE ══ -->
+  <div class="hidden" id="sobre-screen">
+    <div class="about-card">
+      <div class="about-title">🎓 Sobre o UniMatch</div>
+      <p class="about-text">
+        O UniMatch é uma plataforma gratuita de orientação vocacional voltada para estudantes
+        de escolas públicas que estão se preparando para o ENEM e o vestibular.<br><br>
+        O UniMatch faz parte do <strong>Integra</strong>, um grupo dedicado ao desenvolvimento de
+        projetos voltados especialmente para a democratização e inclusão do acesso ao conhecimento.<br><br>
+        Nosso objetivo é reduzir a desigualdade de informação: muitos estudantes chegam ao momento
+        da inscrição sem conhecer bem os cursos disponíveis, o mercado de trabalho e as notas de
+        corte reais. O UniMatch usa dados públicos para oferecer recomendações baseadas em evidências.
+      </p>
     </div>
-
-    <div class="hidden" id="favorites-section">
-      <div class="section-divider"></div>
-      <div class="section-header">
-        <div class="section-title">❤️ Favoritos <span class="section-count" id="fav-count">0</span></div>
-        <button class="btn-ghost" id="clear-fav-btn" style="padding:8px 14px;font-size:0.8rem;">Limpar</button>
+    <div class="about-card">
+      <div class="about-title">📊 Sobre os dados</div>
+      <p class="about-text">
+        • <strong>Notas de corte:</strong> SISU 2024, 1ª chamada, ampla concorrência (fonte: MEC/INEP).<br>
+        • <strong>Salários:</strong> CAGED 2023 e CBO/MTE — medianas nacionais por ocupação.<br>
+        • <strong>Empregabilidade:</strong> baseada em dados do MTE/CAGED 2023.<br>
+        • Notas marcadas com <strong>*est.</strong> são estimadas por comparação, pois o MEC não
+        publica dados individuais para todos os programas.<br><br>
+        Os valores são médias nacionais e podem variar por estado, universidade e experiência profissional.
+      </p>
+    </div>
+    <div class="about-card">
+      <div class="about-title">✉️ Contato e sugestões</div>
+      <p class="about-text">
+        Encontrou algum erro nos dados? Tem sugestões para melhorar a plataforma?
+        Quer contribuir com o projeto?
+      </p>
+      <div class="contact-row">
+        <a class="contact-btn" href="mailto:gabrielcrod14@usp.br">✉️ Reportar problema / Sugestão</a>
+        <a class="contact-btn" id="integra-instagram-btn" href="#" target="_blank" style="opacity:0.5;cursor:not-allowed;" title="Em breve">📸 Instagram do Integra</a>
       </div>
-      <div class="course-list" id="fav-list"></div>
-    </div>
-
-    <!-- Global data notice -->
-    <div class="data-notice" style="margin-top:24px;">
-      <span class="data-notice-icon">ℹ️</span>
-      <span>
-        <strong>Fontes dos dados:</strong> Notas de corte do <strong>SISU 2024</strong> (1ª chamada, ampla concorrência, campus mais concorrido da região — fonte: MEC).
-        Salários e empregabilidade: <strong>CAGED 2023</strong> e <strong>CBO/MTE</strong>.
-        Os valores são médias nacionais e podem variar por estado, setor e experiência.
-        Cursos marcados com <strong>*est.</strong> têm nota estimada por comparação (dados não publicados individualmente pelo MEC).
-        Ao selecionar sua região, as notas são ajustadas proporcionalmente com base nos percentis regionais do SISU.
-      </span>
-    </div>
-
-    <div class="bottom-actions">
-      <button class="btn-primary" id="restart-btn">↩ Refazer o quiz</button>
     </div>
   </div>
 
@@ -615,32 +737,13 @@ body::before {
 </div>
 
 <script>
-/* ============================================================
-   REGIONAL SISU ADJUSTMENT FACTORS
-   Factors applied to base SISU notes (which reflect the most
-   competitive campus per course nationally).
-   Source: Analysis of SISU 2024 regional percentile distribution.
-   Norte/Nordeste universities typically score 8–15% lower than
-   the national most-competitive campus.
-============================================================ */
 const REGION_FACTORS = {
-  sudeste:     1.00,
-  sul:         0.975,
-  centroOeste: 0.955,
-  nordeste:    0.930,
-  norte:       0.905
+  sudeste: 1.00, sul: 0.975, centroOeste: 0.955, nordeste: 0.930, norte: 0.905
 };
-
 const REGION_LABELS = {
-  sudeste: "Sudeste", sul: "Sul", centroOeste: "Centro-Oeste",
-  nordeste: "Nordeste", norte: "Norte"
+  sudeste:"Sudeste", sul:"Sul", centroOeste:"Centro-Oeste", nordeste:"Nordeste", norte:"Norte"
 };
 
-/* ============================================================
-   QUESTIONS
-   Dimensions: [exatas, humanas, saude, tecnologia, negocios, artes, ambiental, social]
-   Each question has a 'dim' key used by getAnswer() — FIX 2.
-============================================================ */
 const QUESTIONS = [
   {
     q: "Qual grande área mais te atrai?",
@@ -725,7 +828,7 @@ const QUESTIONS = [
     q: "O que mais te motiva na carreira?",
     dim: "motivation",
     opts: [
-      { t:"Impacto social — transformar vidas",            e:"❤️", v:"impacto" },
+      { t:"Impacto social — transformar vidas",             e:"❤️", v:"impacto" },
       { t:"Inovação — criar o novo, resolver o impossível", e:"🚀", v:"inovacao" },
       { t:"Estabilidade — carreira sólida e bem remunerada",e:"💰", v:"estabilidade" },
       { t:"Expressão — criar, comunicar, deixar legado",    e:"🎭", v:"expressao" },
@@ -746,1196 +849,938 @@ const QUESTIONS = [
     q: "Qual faixa salarial inicial é importante pra você?",
     dim: "salary",
     opts: [
-      { t:"Acima de R$ 7.000 — prioridade máxima",  e:"💎", v:"muito-alto" },
-      { t:"R$ 4.000–7.000 — equilíbrio ideal",      e:"⚖️", v:"alto" },
-      { t:"R$ 2.500–4.000 — satisfatório",          e:"🌟", v:"medio" },
+      { t:"Acima de R$ 7.000 — prioridade máxima", e:"💎", v:"muito-alto" },
+      { t:"R$ 4.000–7.000 — equilíbrio ideal",     e:"⚖️", v:"alto" },
+      { t:"R$ 2.500–4.000 — satisfatório",         e:"🌟", v:"medio" },
       { t:"Não é prioridade — prefiro realização",  e:"🌱", v:"baixo" }
     ]
   }
 ];
 
-/* ============================================================
-   FIX 2 — getAnswer(dim): lookup by dim key, not array index.
-   This makes the quiz robust to question reordering or skipping.
-============================================================ */
+const COURSES = {
+  "Administração": {
+    vec:[2,4,1,3,10,3,1,5], desc:"Gestão de organizações, recursos e pessoas para maximizar resultados.",
+    carreiras:"Gerente, consultor, empreendedor, analista de negócios.",
+    notaSISU:"670.40", sal:"R$ 4.500–12.000", salMid:8250, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Gestão","Liderança","Estratégia"]
+  },
+  "Arquitetura e Urbanismo": {
+    vec:[5,4,0,3,2,9,3,3], desc:"Projeto de espaços habitáveis com foco em estética, funcionalidade e planejamento urbano.",
+    carreiras:"Arquiteto, urbanista, paisagista, designer de interiores.",
+    notaSISU:"727.00", sal:"R$ 3.800–9.000", salMid:6400, emp:"Média", empScore:5, dem:"Estável", dur:"5", tags:["Design","Cidade","Projetos"]
+  },
+  "Artes Cênicas": {
+    vec:[0,5,0,1,1,10,0,6], desc:"Teatro, dança e performance — teoria e prática das artes do corpo.",
+    carreiras:"Ator, diretor, coreógrafo, produtor cultural, professor.",
+    notaSISU:"611.20", sal:"R$ 2.500–6.000", salMid:4250, emp:"Baixa", empScore:3, dem:"Competitiva", dur:"4", tags:["Teatro","Dança","Expressão"]
+  },
+  "Artes Visuais": {
+    vec:[1,5,0,2,1,10,1,2], desc:"Pintura, escultura, fotografia, vídeo e arte digital.",
+    carreiras:"Artista, curador, crítico de arte, professor, galerista.",
+    notaSISU:"603.80", sal:"R$ 2.800–7.000", salMid:4900, emp:"Média", empScore:4, dem:"Competitiva", dur:"4", tags:["Arte","Visual","Criatividade"]
+  },
+  "Astronomia": {
+    vec:[9,2,0,5,0,1,3,0], desc:"Estudo científico do universo, estrelas, planetas e fenômenos celestes.",
+    carreiras:"Astrônomo, pesquisador, professor universitário, divulgador científico.",
+    notaSISU:"721.40", sal:"R$ 5.000–12.000", salMid:8500, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Universo","Pesquisa","Física"]
+  },
+  "Audiovisual": {
+    vec:[1,5,0,4,3,10,0,4], desc:"Linguagem e produção audiovisual: cinema, vídeo, televisão e mídias digitais.",
+    carreiras:"Cineasta, diretor, roteirista, produtor, editor de vídeo, videomaker.",
+    notaSISU:"651.80", sal:"R$ 3.000–8.500", salMid:5750, emp:"Média", empScore:4, dem:"Competitiva", dur:"4", tags:["Cinema","Roteiro","Produção"]
+  },
+  "Biblioteconomia e Ciência da Informação": {
+    vec:[1,7,0,3,2,3,0,5], desc:"Organização, gestão e disseminação da informação em acervos físicos e digitais.",
+    carreiras:"Bibliotecário, gestor de informação, analista de documentação, arquivista.",
+    notaSISU:"588.20", sal:"R$ 3.000–6.500", salMid:4750, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Informação","Documentação","Gestão"]
+  },
+  "Biomedicina": {
+    vec:[7,1,9,5,1,0,3,2], desc:"Diagnóstico laboratorial, análises clínicas e pesquisa aplicada à saúde humana.",
+    carreiras:"Biomédico clínico, pesquisador, hematologista, citologista.",
+    notaSISU:"710.40", sal:"R$ 4.000–9.500", salMid:6750, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Diagnóstico","Laboratório","Pesquisa"]
+  },
+  "Biotecnologia": {
+    vec:[7,2,7,7,2,0,6,1], desc:"Aplicação de tecnologia em sistemas biológicos para novos produtos e tratamentos.",
+    carreiras:"Pesquisador, analista, desenvolvedor de bioprodutos, consultor.",
+    notaSISU:"748.60", sal:"R$ 5.500–12.000", salMid:8750, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Biotech","Inovação","Laboratório"]
+  },
+  "Ciências Agrárias": {
+    vec:[6,2,2,3,3,0,8,2], desc:"Produção agropecuária sustentável: solo, plantas e animais.",
+    carreiras:"Engenheiro agrônomo, pesquisador, consultor agrícola.",
+    notaSISU:"641.30", sal:"R$ 4.000–9.000", salMid:6500, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Agro","Sustentabilidade","Campo"]
+  },
+  "Ciências Atuariais": {
+    vec:[9,1,0,5,7,0,0,1], desc:"Matemática e estatística para análise de riscos em seguros e finanças.",
+    carreiras:"Atuário, analista de riscos, consultor financeiro.",
+    notaSISU:"709.50", sal:"R$ 5.000–11.000", salMid:8000, emp:"Alta", empScore:8, dem:"Estável", dur:"4", tags:["Matemática","Risco","Finanças"]
+  },
+  "Ciências Biológicas": {
+    vec:[6,3,5,3,1,1,8,2], desc:"Seres vivos, processos vitais e relações ecológicas.",
+    carreiras:"Biólogo, pesquisador, professor, perito ambiental.",
+    notaSISU:"689.40", sal:"R$ 3.500–8.000", salMid:5750, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Biologia","Ecologia","Pesquisa"]
+  },
+  "Ciências Biomédicas": {
+    vec:[7,2,8,6,1,0,4,2], desc:"Pesquisa e análise de processos biológicos relacionados à saúde humana.",
+    carreiras:"Pesquisador, analista biomédico, professor universitário.",
+    notaSISU:"735.80", sal:"R$ 4.500–10.000", salMid:7250, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Pesquisa","Saúde","Laboratório"]
+  },
+  "Ciências Contábeis": {
+    vec:[7,2,0,4,9,1,0,2], desc:"Gestão financeira, contabilidade e controle patrimonial.",
+    carreiras:"Contador, auditor, controller, consultor tributário.",
+    notaSISU:"641.90", sal:"R$ 4.000–9.000", salMid:6500, emp:"Alta", empScore:8, dem:"Estável", dur:"4", tags:["Finanças","Auditoria","Tributário"]
+  },
+  "Ciências da Computação": {
+    vec:[9,1,0,10,3,2,0,2], desc:"Algoritmos, software, inteligência artificial e sistemas computacionais.",
+    carreiras:"Desenvolvedor, cientista de dados, arquiteto de software, pesquisador.",
+    notaSISU:"750.10", sal:"R$ 6.000–20.000", salMid:13000, emp:"Muito Alta", empScore:10, dem:"Crescendo", dur:"4", tags:["Programação","IA","Sistemas"]
+  },
+  "Ciência de Dados": {
+    vec:[9,1,1,10,4,1,1,1], desc:"Análise e interpretação de grandes volumes de dados para apoio à decisão.",
+    carreiras:"Cientista de dados, engenheiro de ML, analista de BI.",
+    notaSISU:"762.30", sal:"R$ 6.000–22.000", salMid:14000, sisuEstimated:true,
+    emp:"Muito Alta", empScore:10, dem:"Crescendo", dur:"4", tags:["Dados","Machine Learning","Análise"]
+  },
+  "Ciências da Natureza": {
+    vec:[7,3,2,3,1,1,8,2], desc:"Formação interdisciplinar em Física, Química e Biologia voltada para a docência.",
+    carreiras:"Professor de Ciências, educador ambiental, pesquisador em ensino de ciências.",
+    notaSISU:"612.30", sal:"R$ 2.800–6.500", salMid:4650, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Ensino","Ciências","Interdisciplinar"]
+  },
+  "Ciências dos Alimentos": {
+    vec:[7,1,3,4,3,0,5,2], desc:"Propriedades, processamento, segurança e conservação de alimentos.",
+    carreiras:"Pesquisador, tecnólogo de alimentos, analista de qualidade.",
+    notaSISU:"678.20", sal:"R$ 4.200–8.500", salMid:6350, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Alimentos","Qualidade","Segurança"]
+  },
+  "Ciências Exatas": {
+    vec:[10,1,0,6,1,0,2,0], desc:"Base sólida em Matemática, Física e Química com flexibilidade para especialização.",
+    carreiras:"Pesquisador, professor, analista quantitativo, engenheiro.",
+    notaSISU:"698.50", sal:"R$ 5.000–13.000", salMid:9000, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Matemática","Física","Química"]
+  },
+  "Ciências Físicas e Biomoleculares": {
+    vec:[8,1,6,5,1,0,4,1], desc:"Interface entre Física, Química e Biologia aplicada a sistemas moleculares e celulares.",
+    carreiras:"Pesquisador, analista biomolecular, professor universitário.",
+    notaSISU:"718.40", sal:"R$ 5.000–11.000", salMid:8000, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Biofísica","Pesquisa","Molecular"]
+  },
+  "Ciência Política": {
+    vec:[1,9,0,1,4,2,1,7], desc:"Análise de sistemas políticos, poder, Estado e relações internacionais.",
+    carreiras:"Cientista político, consultor, analista de políticas públicas, pesquisador.",
+    notaSISU:"668.70", sal:"R$ 3.800–9.000", salMid:6400, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Política","Estado","Análise"]
+  },
+  "Ciências Sociais": {
+    vec:[1,9,1,1,2,3,3,7], desc:"Análise de sociedades humanas, culturas e dinâmicas sociais.",
+    carreiras:"Pesquisador, consultor social, analista de políticas, professor.",
+    notaSISU:"632.50", sal:"R$ 3.200–7.000", salMid:5100, emp:"Média", empScore:4, dem:"Estável", dur:"4", tags:["Sociedade","Cultura","Pesquisa"]
+  },
+  "Design": {
+    vec:[4,3,0,5,4,9,2,3], desc:"Soluções visuais e funcionais para produtos, marcas e interfaces digitais.",
+    carreiras:"Designer gráfico, UX/UI designer, diretor de arte.",
+    notaSISU:"680.90", sal:"R$ 3.500–10.000", salMid:6750, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["UI/UX","Visual","Branding"]
+  },
+  "Direito": {
+    vec:[2,9,2,1,4,3,1,7], desc:"Leis, justiça, advocacia e regulação da vida em sociedade.",
+    carreiras:"Advogado, juiz, promotor, defensor público, consultor jurídico.",
+    notaSISU:"754.80", sal:"R$ 4.000–25.000", salMid:12000, emp:"Alta", empScore:7, dem:"Competitiva", dur:"5", tags:["Leis","Justiça","Advocacia"]
+  },
+  "Economia": {
+    vec:[7,5,0,4,8,1,2,3], desc:"Produção, distribuição e consumo: análise micro e macroeconômica.",
+    carreiras:"Economista, analista de mercado, pesquisador, consultor.",
+    notaSISU:"714.60", sal:"R$ 5.000–14.000", salMid:9500, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Mercado","Análise","Política Econômica"]
+  },
+  "Editoração": {
+    vec:[2,7,0,3,3,8,0,3], desc:"Produção editorial: livros, revistas, e-books e publicações digitais.",
+    carreiras:"Editor, revisor, diagramador, produtor editorial, gestor de conteúdo.",
+    notaSISU:"638.70", sal:"R$ 2.800–7.000", salMid:4900, emp:"Média", empScore:4, dem:"Competitiva", dur:"4", tags:["Edição","Publicação","Conteúdo"]
+  },
+  "Educação Física e Esporte": {
+    vec:[3,3,7,2,2,2,3,7], desc:"Promoção da saúde e desempenho por meio de atividades físicas.",
+    carreiras:"Professor, personal trainer, preparador físico, gestor esportivo.",
+    notaSISU:"634.70", sal:"R$ 2.800–7.000", salMid:4900, emp:"Alta", empScore:6, dem:"Estável", dur:"4", tags:["Esporte","Saúde","Movimento"]
+  },
+  "Educomunicação": {
+    vec:[0,6,1,3,2,7,0,8], desc:"Interface entre educação e comunicação para formação crítica e uso de mídias.",
+    carreiras:"Educomunicador, produtor de conteúdo educativo, gestor cultural, professor.",
+    notaSISU:"622.40", sal:"R$ 2.800–6.500", salMid:4650, sisuEstimated:true,
+    emp:"Média", empScore:5, dem:"Crescendo", dur:"4", tags:["Educação","Mídia","Comunicação"]
+  },
+  "Enfermagem": {
+    vec:[3,4,9,2,2,1,2,9], desc:"Cuidado integral à saúde humana em diferentes níveis de atenção.",
+    carreiras:"Enfermeiro, gestor hospitalar, educador em saúde, pesquisador.",
+    notaSISU:"682.30", sal:"R$ 3.500–9.000", salMid:6250, emp:"Muito Alta", empScore:9, dem:"Crescendo", dur:"5", tags:["Cuidado","Hospital","Saúde Coletiva"]
+  },
+  "Engenharia Aeronáutica": {
+    vec:[10,1,0,8,3,1,2,2], desc:"Projeto, construção e manutenção de aeronaves e sistemas aeroespaciais.",
+    carreiras:"Engenheiro aeronáutico, projetista, analista de sistemas de voo.",
+    notaSISU:"769.50", sal:"R$ 6.000–16.000", salMid:11000, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Aviação","Aeroespacial","Projetos"]
+  },
+  "Engenharia Agronômica": {
+    vec:[7,2,2,4,3,0,9,2], desc:"Produção agropecuária sustentável, manejo do solo, irrigação e tecnologia agrícola.",
+    carreiras:"Engenheiro agrônomo, consultor rural, pesquisador, gestor de propriedades.",
+    notaSISU:"689.30", sal:"R$ 4.500–10.000", salMid:7250, emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Agro","Solo","Sustentabilidade"]
+  },
+  "Engenharia Ambiental": {
+    vec:[8,2,1,5,2,0,9,2], desc:"Soluções tecnológicas para preservação ambiental e sustentabilidade.",
+    carreiras:"Engenheiro ambiental, consultor, gestor de recursos naturais.",
+    notaSISU:"699.10", sal:"R$ 4.800–10.000", salMid:7400, emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Meio Ambiente","Sustentabilidade","Tecnologia"]
+  },
+  "Engenharia Bioquímica": {
+    vec:[8,1,4,6,2,0,5,1], desc:"Processos bioquímicos industriais para produção de fármacos, alimentos e biocombustíveis.",
+    carreiras:"Engenheiro bioquímico, pesquisador, gestor de bioprodutos.",
+    notaSISU:"712.80", sal:"R$ 5.000–12.000", salMid:8500, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Bioprocessos","Indústria","Pesquisa"]
+  },
+  "Engenharia Biomédica": {
+    vec:[8,1,6,8,1,0,1,2], desc:"Desenvolvimento de equipamentos, dispositivos e sistemas aplicados à medicina.",
+    carreiras:"Engenheiro biomédico, desenvolvedor de dispositivos médicos, pesquisador.",
+    notaSISU:"736.20", sal:"R$ 5.500–14.000", salMid:9750, emp:"Alta", empScore:8, dem:"Crescendo", dur:"5", tags:["Bioengenharia","Equipamentos","Saúde"]
+  },
+  "Engenharia Civil": {
+    vec:[9,1,0,5,3,1,4,3], desc:"Projetos, construção e manutenção de edificações e infraestrutura urbana.",
+    carreiras:"Engenheiro civil, projetista, fiscal de obras, gestor de projetos.",
+    notaSISU:"712.40", sal:"R$ 5.000–13.000", salMid:9000, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Construção","Infraestrutura","Cálculo"]
+  },
+  "Engenharia de Alimentos": {
+    vec:[8,1,2,5,3,0,4,1], desc:"Processos industriais de produção, conservação e desenvolvimento de alimentos.",
+    carreiras:"Engenheiro de alimentos, gerente de produção, analista de qualidade.",
+    notaSISU:"672.80", sal:"R$ 4.500–10.000", salMid:7250, emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Alimentos","Indústria","Processos"]
+  },
+  "Engenharia de Biossistemas": {
+    vec:[7,1,2,5,2,0,8,1], desc:"Engenharia aplicada a sistemas biológicos e ao agronegócio sustentável.",
+    carreiras:"Engenheiro de biossistemas, consultor em agronegócio, pesquisador.",
+    notaSISU:"678.40", sal:"R$ 4.500–10.000", salMid:7250, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Agro","Biossistemas","Sustentabilidade"]
+  },
+  "Engenharia de Computação": {
+    vec:[10,0,0,9,2,1,0,2], desc:"Hardware, firmware e software integrados em sistemas computacionais completos.",
+    carreiras:"Engenheiro de computação, desenvolvedor embarcado, arquiteto de sistemas.",
+    notaSISU:"745.20", sal:"R$ 5.500–18.000", salMid:11750, emp:"Muito Alta", empScore:9, dem:"Crescendo", dur:"5", tags:["Hardware","Software","Sistemas Embarcados"]
+  },
+  "Engenharia de Materiais": {
+    vec:[9,1,0,6,2,0,5,1], desc:"Desenvolvimento, processamento e aplicação de materiais de alta performance.",
+    carreiras:"Engenheiro de materiais, pesquisador, desenvolvedor de produtos.",
+    notaSISU:"689.70", sal:"R$ 5.000–12.000", salMid:8500, emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Materiais","Inovação","Pesquisa"]
+  },
+  "Engenharia de Materiais e Manufatura": {
+    vec:[9,0,0,6,3,0,4,1], desc:"Desenvolvimento de materiais e processos de fabricação industrial de alta performance.",
+    carreiras:"Engenheiro de manufatura, desenvolvedor de produtos, consultor industrial.",
+    notaSISU:"692.40", sal:"R$ 5.000–12.000", salMid:8500, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Materiais","Manufatura","Indústria"]
+  },
+  "Engenharia de Minas": {
+    vec:[9,0,0,5,2,0,7,1], desc:"Extração, processamento e gerenciamento de recursos minerais.",
+    carreiras:"Engenheiro de minas, consultor em mineração, gestor de lavras.",
+    notaSISU:"695.20", sal:"R$ 6.000–14.000", salMid:10000, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Mineração","Recursos","Extração"]
+  },
+  "Engenharia de Petróleo": {
+    vec:[9,0,0,6,3,0,5,1], desc:"Exploração, extração e processamento de petróleo e gás natural.",
+    carreiras:"Engenheiro de petróleo, consultor, especialista em reservatórios.",
+    notaSISU:"721.60", sal:"R$ 7.000–18.000", salMid:12500, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Petróleo","Gás","Exploração"]
+  },
+  "Engenharia de Produção": {
+    vec:[8,2,0,6,7,1,2,4], desc:"Otimização de sistemas produtivos, logística e gestão industrial.",
+    carreiras:"Engenheiro de produção, consultor, gestor industrial, supply chain.",
+    notaSISU:"718.60", sal:"R$ 5.500–13.000", salMid:9250, emp:"Alta", empScore:8, dem:"Estável", dur:"5", tags:["Produção","Otimização","Logística"]
+  },
+  "Engenharia Elétrica": {
+    vec:[10,0,0,8,2,0,2,1], desc:"Projeto e desenvolvimento de sistemas elétricos, eletrônicos e de energia.",
+    carreiras:"Engenheiro eletricista, projetista, gestor de energia.",
+    notaSISU:"730.80", sal:"R$ 5.500–14.000", salMid:9750, emp:"Alta", empScore:8, dem:"Estável", dur:"5", tags:["Eletricidade","Energia","Sistemas"]
+  },
+  "Engenharia Física": {
+    vec:[10,0,0,8,1,0,3,0], desc:"Física aplicada ao desenvolvimento tecnológico: fotônica, semicondutores e nanotecnologia.",
+    carreiras:"Engenheiro físico, pesquisador em P&D, especialista em nanotecnologia.",
+    notaSISU:"748.60", sal:"R$ 6.000–16.000", salMid:11000, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Física","Nanotecnologia","P&D"]
+  },
+  "Engenharia Florestal": {
+    vec:[7,2,0,3,2,0,9,2], desc:"Manejo sustentável de florestas, recursos madeireiros e conservação ambiental.",
+    carreiras:"Engenheiro florestal, pesquisador, gestor ambiental, consultor.",
+    notaSISU:"649.80", sal:"R$ 4.000–9.000", salMid:6500, emp:"Alta", empScore:6, dem:"Estável", dur:"5", tags:["Florestas","Manejo","Conservação"]
+  },
+  "Engenharia Mecânica": {
+    vec:[10,0,0,6,3,0,2,2], desc:"Projeto, análise e fabricação de sistemas e componentes mecânicos.",
+    carreiras:"Engenheiro mecânico, projetista, gestor de manufatura.",
+    notaSISU:"724.90", sal:"R$ 5.500–13.000", salMid:9250, emp:"Alta", empScore:8, dem:"Estável", dur:"5", tags:["Mecânica","Projetos","Indústria"]
+  },
+  "Engenharia Mecatrônica": {
+    vec:[10,0,0,9,2,0,1,2], desc:"Mecânica, eletrônica e computação integradas em sistemas automatizados.",
+    carreiras:"Engenheiro mecatrônico, desenvolvedor de robótica, especialista em automação.",
+    notaSISU:"742.10", sal:"R$ 5.500–15.000", salMid:10250, emp:"Alta", empScore:8, dem:"Crescendo", dur:"5", tags:["Robótica","Automação","IoT"]
+  },
+  "Engenharia Metalúrgica": {
+    vec:[9,0,0,5,2,0,5,1], desc:"Extração, processamento e aplicação de metais e ligas metálicas.",
+    carreiras:"Engenheiro metalúrgico, pesquisador de materiais, consultor industrial.",
+    notaSISU:"688.90", sal:"R$ 5.500–13.000", salMid:9250, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Metais","Processos","Indústria"]
+  },
+  "Engenharia Naval": {
+    vec:[9,0,0,5,2,0,4,1], desc:"Projeto e construção de embarcações, plataformas offshore e sistemas navais.",
+    carreiras:"Engenheiro naval, projetista, especialista offshore, consultor marítimo.",
+    notaSISU:"711.20", sal:"R$ 6.000–15.000", salMid:10500, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Naval","Offshore","Projetos"]
+  },
+  "Engenharia Química": {
+    vec:[10,0,0,6,2,0,4,1], desc:"Processos químicos industriais e desenvolvimento de novos produtos.",
+    carreiras:"Engenheiro químico, gestor de processos, pesquisador, consultor.",
+    notaSISU:"726.30", sal:"R$ 5.500–13.000", salMid:9250, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Química","Processos","Petroquímica"]
+  },
+  "Estatística": {
+    vec:[9,2,1,7,5,0,1,1], desc:"Coleta, análise e interpretação de dados para tomada de decisão.",
+    carreiras:"Estatístico, analista de dados, cientista de dados, consultor.",
+    notaSISU:"698.40", sal:"R$ 5.000–14.000", salMid:9500, emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Dados","Análise","Probabilidade"]
+  },
+  "Farmácia": {
+    vec:[7,2,7,4,2,0,4,3], desc:"Desenvolvimento, produção e controle de medicamentos e cosméticos.",
+    carreiras:"Farmacêutico, pesquisador, gestor de farmácia hospitalar, analista.",
+    notaSISU:"712.60", sal:"R$ 4.000–10.000", salMid:7000, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Medicamentos","Saúde","Laboratório"]
+  },
+  "Filosofia": {
+    vec:[1,10,0,0,1,4,1,3], desc:"Reflexão crítica sobre existência, ética, conhecimento e política.",
+    carreiras:"Professor, pesquisador, consultor, escritor, redator.",
+    notaSISU:"591.30", sal:"R$ 2.800–6.500", salMid:4650, emp:"Baixa", empScore:3, dem:"Competitiva", dur:"4", tags:["Pensamento","Ética","Crítica"]
+  },
+  "Finanças e Negócios": {
+    vec:[5,2,0,4,10,1,0,2], desc:"Gestão financeira, mercados de capitais e estratégia empresarial.",
+    carreiras:"Analista financeiro, gestor de investimentos, consultor de negócios.",
+    notaSISU:"682.40", sal:"R$ 5.000–14.000", salMid:9500, emp:"Alta", empScore:8, dem:"Estável", dur:"4", tags:["Finanças","Mercado","Investimentos"]
+  },
+  "Física": {
+    vec:[10,2,0,7,0,0,3,0], desc:"Leis fundamentais que regem matéria, energia, espaço e tempo.",
+    carreiras:"Físico, pesquisador, professor, engenheiro de projetos de alta tecnologia.",
+    notaSISU:"714.20", sal:"R$ 6.000–16.000", salMid:11000, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Pesquisa","Universo","Fundamentos"]
+  },
+  "Física Computacional": {
+    vec:[10,1,0,9,1,0,2,0], desc:"Métodos computacionais aplicados à resolução de problemas físicos complexos.",
+    carreiras:"Pesquisador, desenvolvedor de simulações, cientista computacional.",
+    notaSISU:"724.80", sal:"R$ 5.500–14.000", salMid:9500, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Física","Computação","Simulação"]
+  },
+  "Física Médica": {
+    vec:[9,1,7,7,1,0,1,2], desc:"Princípios físicos aplicados a diagnóstico, radioterapia e equipamentos médicos.",
+    carreiras:"Físico médico, pesquisador, desenvolvedor de equipamentos hospitalares.",
+    notaSISU:"728.40", sal:"R$ 7.000–16.000", salMid:11500, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Física","Medicina","Diagnóstico"]
+  },
+  "Fisioterapia": {
+    vec:[4,3,9,2,1,1,1,8], desc:"Prevenção e tratamento de disfunções do movimento e reabilitação funcional.",
+    carreiras:"Fisioterapeuta, pesquisador, gestor de clínica, professor.",
+    notaSISU:"694.80", sal:"R$ 3.500–9.000", salMid:6250, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Reabilitação","Movimento","Saúde"]
+  },
+  "Fonoaudiologia": {
+    vec:[3,4,8,2,1,2,0,8], desc:"Avaliação e tratamento de distúrbios da comunicação e deglutição.",
+    carreiras:"Fonoaudiólogo, pesquisador, professor, consultor em saúde.",
+    notaSISU:"688.50", sal:"R$ 3.500–8.500", salMid:6000, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Fala","Audição","Terapia"]
+  },
+  "Geociências e Educação Ambiental": {
+    vec:[5,5,0,2,1,1,9,4], desc:"Formação em Geociências voltada para educação ambiental e ensino de Ciências da Terra.",
+    carreiras:"Professor, educador ambiental, pesquisador, gestor de projetos ambientais.",
+    notaSISU:"598.60", sal:"R$ 3.000–7.000", salMid:5000, sisuEstimated:true,
+    emp:"Média", empScore:5, dem:"Crescendo", dur:"4", tags:["Geociências","Educação","Ambiente"]
+  },
+  "Geofísica": {
+    vec:[9,1,0,5,2,0,7,0], desc:"Estudo da Terra por métodos físicos e matemáticos.",
+    carreiras:"Geofísico, pesquisador, consultor em exploração mineral e petróleo.",
+    notaSISU:"680.10", sal:"R$ 6.000–14.000", salMid:10000, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Terra","Exploração","Física"]
+  },
+  "Geografia": {
+    vec:[3,7,0,2,2,2,6,5], desc:"Espaço geográfico, relações sociedade-natureza e planejamento territorial.",
+    carreiras:"Geógrafo, professor, planejador territorial, analista ambiental.",
+    notaSISU:"617.60", sal:"R$ 3.200–7.500", salMid:5350, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Território","Espaço","Planejamento"]
+  },
+  "Geologia": {
+    vec:[8,2,0,4,2,0,8,1], desc:"Composição, estrutura e história da Terra e seus recursos.",
+    carreiras:"Geólogo, consultor em mineração, pesquisador de petróleo.",
+    notaSISU:"674.30", sal:"R$ 6.000–15.000", salMid:10500, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Rochas","Recursos Naturais","Exploração"]
+  },
+  "Gerontologia": {
+    vec:[1,5,7,1,2,1,1,9], desc:"Estudo do envelhecimento humano e promoção da qualidade de vida do idoso.",
+    carreiras:"Gerontólogo, gestor de saúde do idoso, pesquisador, consultor em políticas.",
+    notaSISU:"634.20", sal:"R$ 3.000–7.500", salMid:5250, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Envelhecimento","Saúde","Políticas"]
+  },
+  "Gestão Ambiental": {
+    vec:[4,5,1,4,5,1,9,4], desc:"Planejamento e gestão de recursos naturais com foco em sustentabilidade.",
+    carreiras:"Gestor ambiental, consultor, analista de sustentabilidade corporativa.",
+    notaSISU:"632.80", sal:"R$ 3.800–8.500", salMid:6150, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Sustentabilidade","Recursos","Políticas"]
+  },
+  "Gestão de Políticas Públicas": {
+    vec:[2,7,1,2,7,1,2,9], desc:"Planejamento, implementação e avaliação de políticas públicas e programas governamentais.",
+    carreiras:"Gestor público, analista de políticas, consultor em governo, pesquisador.",
+    notaSISU:"624.80", sal:"R$ 3.500–10.000", salMid:6750, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Governo","Políticas","Gestão"]
+  },
+  "História": {
+    vec:[1,10,0,0,1,5,2,3], desc:"Processos históricos, culturas e transformações das sociedades humanas.",
+    carreiras:"Historiador, professor, pesquisador, curador, museólogo.",
+    notaSISU:"619.80", sal:"R$ 2.800–6.500", salMid:4650, emp:"Média", empScore:4, dem:"Competitiva", dur:"4", tags:["Passado","Cultura","Pesquisa"]
+  },
+  "Informática Biomédica": {
+    vec:[7,1,6,9,2,0,1,2], desc:"Computação aplicada a soluções para saúde, medicina e pesquisa clínica.",
+    carreiras:"Analista de sistemas de saúde, pesquisador, desenvolvedor de software médico.",
+    notaSISU:"712.40", sal:"R$ 5.000–12.000", salMid:8500, sisuEstimated:true,
+    emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Saúde","TI","Computação"]
+  },
+  "Jornalismo": {
+    vec:[1,7,1,3,3,7,1,7], desc:"Apuração, produção e disseminação de informações e narrativas jornalísticas.",
+    carreiras:"Jornalista, editor, repórter, produtor de conteúdo digital.",
+    notaSISU:"665.40", sal:"R$ 2.800–8.000", salMid:5400, emp:"Média", empScore:5, dem:"Competitiva", dur:"4", tags:["Notícias","Mídia","Comunicação"]
+  },
+  "Lazer e Turismo": {
+    vec:[1,4,2,2,5,4,3,8], desc:"Planejamento e gestão de atividades de lazer, turismo e hospitalidade.",
+    carreiras:"Gestor de turismo, planejador de eventos, consultor em hospitalidade.",
+    notaSISU:"591.40", sal:"R$ 2.800–7.000", salMid:4900, sisuEstimated:true,
+    emp:"Média", empScore:5, dem:"Crescendo", dur:"4", tags:["Turismo","Lazer","Hospitalidade"]
+  },
+  "Letras": {
+    vec:[1,9,0,1,1,7,1,4], desc:"Línguas, literaturas e manifestações culturais do mundo.",
+    carreiras:"Professor, tradutor, revisor, pesquisador linguístico, escritor.",
+    notaSISU:"607.20", sal:"R$ 2.800–6.500", salMid:4650, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Línguas","Literatura","Cultura"]
+  },
+  "Marketing": {
+    vec:[3,4,0,5,9,6,1,6], desc:"Estratégias de mercado, comunicação e relacionamento com consumidores.",
+    carreiras:"Profissional de marketing digital, gestor de marcas, analista de mercado.",
+    notaSISU:"672.10", sal:"R$ 3.500–11.000", salMid:7250, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Mercado","Branding","Digital"]
+  },
+  "Matemática": {
+    vec:[10,2,0,6,2,0,1,0], desc:"Estruturas abstratas, padrões e relações quantitativas fundamentais.",
+    carreiras:"Matemático, professor, pesquisador, analista quantitativo, atuário.",
+    notaSISU:"692.80", sal:"R$ 5.000–14.000", salMid:9500, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Números","Lógica","Abstração"]
+  },
+  "Matemática Aplicada": {
+    vec:[10,1,0,7,3,0,2,0], desc:"Matemática com foco em aplicações práticas em ciência, tecnologia e economia.",
+    carreiras:"Matemático aplicado, pesquisador, analista quantitativo, cientista de dados.",
+    notaSISU:"718.40", sal:"R$ 5.000–14.000", salMid:9500, emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Matemática","Aplicações","Modelagem"]
+  },
+  "Matemática Aplicada a Negócios": {
+    vec:[9,1,0,6,7,0,1,0], desc:"Matemática e estatística aplicadas à tomada de decisão no mundo dos negócios.",
+    carreiras:"Analista quantitativo, cientista de dados, consultor financeiro, atuário.",
+    notaSISU:"698.20", sal:"R$ 5.500–15.000", salMid:10250, sisuEstimated:true,
+    emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Matemática","Negócios","Análise"]
+  },
+  "Matemática Aplicada e Computação Científica": {
+    vec:[10,1,0,9,2,0,2,0], desc:"Algoritmos e modelos computacionais aplicados a ciência e engenharia.",
+    carreiras:"Pesquisador, desenvolvedor de algoritmos, cientista computacional.",
+    notaSISU:"728.60", sal:"R$ 5.500–15.000", salMid:10250, sisuEstimated:true,
+    emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Matemática","Computação","Ciência"]
+  },
+  "Matemática Aplicada e Computacional": {
+    vec:[10,1,0,9,2,0,2,0], desc:"Métodos matemáticos e computacionais para modelagem científica e engenharia.",
+    carreiras:"Pesquisador, desenvolvedor de algoritmos, cientista computacional.",
+    notaSISU:"724.60", sal:"R$ 5.500–15.000", salMid:10250, sisuEstimated:true,
+    emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Matemática","Computação","Modelagem"]
+  },
+  "Medicina": {
+    vec:[5,4,10,4,2,1,2,9], desc:"Diagnóstico, tratamento e prevenção de doenças. A graduação mais longa e competitiva.",
+    carreiras:"Médico generalista, especialista, pesquisador clínico, professor.",
+    notaSISU:"807.90", sal:"R$ 10.000–30.000", salMid:20000, emp:"Muito Alta", empScore:10, dem:"Alta", dur:"6", tags:["Medicina","Diagnóstico","Pesquisa Clínica"]
+  },
+  "Medicina Veterinária": {
+    vec:[5,2,8,3,2,1,6,7], desc:"Saúde animal, clínica, cirurgia e saúde pública veterinária.",
+    carreiras:"Médico veterinário, pesquisador, inspetor sanitário, consultor.",
+    notaSISU:"714.80", sal:"R$ 4.000–10.000", salMid:7000, emp:"Alta", empScore:7, dem:"Estável", dur:"5", tags:["Animais","Clínica","Saúde Pública"]
+  },
+  "Meteorologia": {
+    vec:[8,2,0,5,1,0,7,1], desc:"Atmosfera, clima e previsão do tempo por métodos científicos.",
+    carreiras:"Meteorologista, pesquisador climático, analista, consultor.",
+    notaSISU:"678.90", sal:"R$ 5.000–11.000", salMid:8000, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Clima","Atmosfera","Previsão"]
+  },
+  "Música": {
+    vec:[2,5,0,2,1,10,0,5], desc:"Teoria, composição e execução musical em múltiplos gêneros.",
+    carreiras:"Músico, compositor, professor, regente, produtor musical.",
+    notaSISU:"625.40", sal:"R$ 2.500–7.000", salMid:4750, emp:"Baixa", empScore:3, dem:"Competitiva", dur:"4", tags:["Som","Composição","Performance"]
+  },
+  "Nutrição": {
+    vec:[4,3,8,2,2,1,3,7], desc:"Alimentação, nutrição clínica e promoção da saúde humana.",
+    carreiras:"Nutricionista, pesquisador, consultor alimentar, gestor de UAN.",
+    notaSISU:"684.20", sal:"R$ 3.000–8.000", salMid:5500, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Alimentação","Saúde","Clínica"]
+  },
+  "Nutrição e Metabolismo": {
+    vec:[5,2,8,3,2,1,3,6], desc:"Nutrição clínica avançada com foco em metabolismo e doenças crônicas.",
+    carreiras:"Nutricionista clínico, pesquisador em metabolismo, consultor em saúde.",
+    notaSISU:"698.40", sal:"R$ 3.500–9.000", salMid:6250, sisuEstimated:true,
+    emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Nutrição","Metabolismo","Saúde"]
+  },
+  "Obstetrícia": {
+    vec:[2,3,9,1,1,1,1,9], desc:"Cuidado integral à saúde da mulher durante gestação, parto e puerpério.",
+    carreiras:"Obstetra, enfermeiro obstetra, pesquisador em saúde materna.",
+    notaSISU:"694.80", sal:"R$ 4.000–10.000", salMid:7000, sisuEstimated:true,
+    emp:"Alta", empScore:8, dem:"Crescendo", dur:"4", tags:["Gestação","Saúde da Mulher","Parto"]
+  },
+  "Oceanografia": {
+    vec:[7,3,2,3,1,1,9,2], desc:"Oceanos, mares, zonas costeiras e seus ecossistemas.",
+    carreiras:"Oceanógrafo, pesquisador, consultor ambiental marinho.",
+    notaSISU:"659.80", sal:"R$ 4.500–10.000", salMid:7250, emp:"Média", empScore:5, dem:"Crescendo", dur:"4", tags:["Oceanos","Ecossistemas","Pesquisa"]
+  },
+  "Odontologia": {
+    vec:[5,2,9,3,3,2,0,7], desc:"Prevenção, diagnóstico e tratamento de doenças bucais.",
+    carreiras:"Cirurgião-dentista, especialista, pesquisador, professor.",
+    notaSISU:"754.30", sal:"R$ 5.000–18.000", salMid:11500, emp:"Alta", empScore:8, dem:"Estável", dur:"5", tags:["Saúde Bucal","Clínica","Cirurgia"]
+  },
+  "Pedagogia": {
+    vec:[1,7,3,1,2,3,1,9], desc:"Processos de ensino e aprendizagem em contextos formais e informais.",
+    carreiras:"Pedagogo, professor, gestor educacional, orientador escolar.",
+    notaSISU:"604.60", sal:"R$ 2.500–6.000", salMid:4250, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Educação","Ensino","Aprendizagem"]
+  },
+  "Psicologia": {
+    vec:[2,7,8,2,2,3,1,9], desc:"Comportamento humano, processos mentais e saúde psicológica.",
+    carreiras:"Psicólogo clínico, organizacional, escolar, pesquisador.",
+    notaSISU:"745.60", sal:"R$ 3.500–10.000", salMid:6750, emp:"Alta", empScore:7, dem:"Crescendo", dur:"5", tags:["Saúde Mental","Comportamento","Terapia"]
+  },
+  "Publicidade e Propaganda": {
+    vec:[1,4,0,4,7,9,1,6], desc:"Criação e gestão de campanhas publicitárias e comunicação mercadológica.",
+    carreiras:"Publicitário, diretor de criação, planejador, gestor de contas.",
+    notaSISU:"668.40", sal:"R$ 3.200–10.000", salMid:6600, emp:"Média", empScore:5, dem:"Competitiva", dur:"4", tags:["Publicidade","Criatividade","Mídia"]
+  },
+  "Química": {
+    vec:[9,1,2,5,2,0,5,1], desc:"Matéria, suas transformações, propriedades e aplicações industriais.",
+    carreiras:"Químico, pesquisador, professor, analista laboratorial.",
+    notaSISU:"671.40", sal:"R$ 4.000–10.000", salMid:7000, emp:"Alta", empScore:7, dem:"Estável", dur:"4", tags:["Matéria","Laboratório","Síntese"]
+  },
+  "Relações Internacionais": {
+    vec:[2,9,1,2,6,3,3,6], desc:"Relações entre Estados, organizações e atores no cenário global.",
+    carreiras:"Diplomata, analista internacional, gestor de projetos globais, consultor.",
+    notaSISU:"706.80", sal:"R$ 4.500–12.000", salMid:8250, emp:"Média", empScore:5, dem:"Competitiva", dur:"4", tags:["Diplomacia","Global","Política"]
+  },
+  "Relações Públicas": {
+    vec:[1,5,0,3,6,6,0,7], desc:"Gestão da comunicação entre organizações e seus públicos de interesse.",
+    carreiras:"Relações públicas, assessor de comunicação, gestor de marca, consultor.",
+    notaSISU:"638.40", sal:"R$ 3.000–8.000", salMid:5500, emp:"Média", empScore:5, dem:"Estável", dur:"4", tags:["Comunicação","Marca","Relacionamento"]
+  },
+  "Saúde Pública": {
+    vec:[3,6,8,2,3,1,3,8], desc:"Promoção, proteção e recuperação da saúde em nível coletivo e populacional.",
+    carreiras:"Sanitarista, gestor em saúde, pesquisador, educador em saúde.",
+    notaSISU:"668.20", sal:"R$ 4.000–9.000", salMid:6500, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Saúde Coletiva","Políticas","Prevenção"]
+  },
+  "Sistemas de Informação": {
+    vec:[7,2,0,9,6,2,0,3], desc:"Gestão e desenvolvimento de sistemas de informação em organizações.",
+    carreiras:"Analista de sistemas, gestor de TI, desenvolvedor, consultor.",
+    notaSISU:"691.50", sal:"R$ 5.000–15.000", salMid:10000, emp:"Muito Alta", empScore:9, dem:"Crescendo", dur:"4", tags:["Sistemas","TI","Desenvolvimento"]
+  },
+  "Terapia Ocupacional": {
+    vec:[2,4,8,2,1,3,1,9], desc:"Atividades terapêuticas para reabilitação, inclusão e promoção de autonomia.",
+    carreiras:"Terapeuta ocupacional, pesquisador, gestor em saúde.",
+    notaSISU:"661.40", sal:"R$ 3.200–7.500", salMid:5350, emp:"Alta", empScore:7, dem:"Crescendo", dur:"4", tags:["Reabilitação","Inclusão","Autonomia"]
+  },
+  "Têxtil e Moda": {
+    vec:[2,3,0,3,4,9,2,3], desc:"Criação, produção e gestão no universo têxtil, de moda e vestuário.",
+    carreiras:"Estilista, gestor de produção têxtil, consultor de moda.",
+    notaSISU:"621.80", sal:"R$ 2.800–7.000", salMid:4900, emp:"Média", empScore:4, dem:"Competitiva", dur:"4", tags:["Moda","Design","Têxtil"]
+  },
+  "Turismo": {
+    vec:[1,4,0,2,5,4,2,7], desc:"Planejamento turístico, gestão de destinos e desenvolvimento do setor de viagens.",
+    carreiras:"Gestor de turismo, consultor, planejador de destinos, gestor de eventos.",
+    notaSISU:"598.40", sal:"R$ 2.800–7.500", salMid:5150, emp:"Média", empScore:5, dem:"Crescendo", dur:"4", tags:["Turismo","Destinos","Eventos"]
+  },
+  "Zootecnia": {
+    vec:[5,2,5,3,3,0,8,4], desc:"Produção, manejo e conservação de animais domésticos e silvestres.",
+    carreiras:"Zootecnista, gestor de produção animal, pesquisador.",
+    notaSISU:"643.70", sal:"R$ 3.800–8.500", salMid:6150, emp:"Alta", empScore:6, dem:"Estável", dur:"4", tags:["Animais","Produção","Manejo"]
+  }
+};
+
+
 function getAnswer(dim, answers) {
   const idx = QUESTIONS.findIndex(q => q.dim === dim);
   return idx >= 0 ? (answers || state.answers)[idx] : undefined;
 }
 
-/* ============================================================
-   COURSE DATABASE — 90 cursos
-   vec: [exatas, humanas, saude, tecnologia, negocios, artes, ambiental, social]
-   sisuEstimated: true = nota estimada por comparação (sem dado MEC publicado individualmente).
-============================================================ */
-const COURSES = {
-  "Administração": {
-    vec: [2,4,1,3,10,3,1,5],
-    desc: "Gestão de organizações, recursos e pessoas para maximizar resultados.",
-    carreiras: "Gerente, consultor, empreendedor, analista de negócios.",
-    notaSISU: "670.40", sal: "R$ 4.500–12.000", salMid: 8250,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Gestão","Liderança","Estratégia"]
-  },
-  "Análise e Desenvolvimento de Sistemas": {
-    vec: [6,1,0,9,5,1,0,2],
-    desc: "Tecnólogo focado em desenvolvimento de software, bancos de dados e sistemas de informação.",
-    carreiras: "Desenvolvedor, analista de sistemas, DBA, suporte técnico avançado.",
-    notaSISU: "638.50", sal: "R$ 4.500–13.000", salMid: 8750,
-    sisuEstimated: true,
-    emp: "Muito Alta", empScore: 9, dem: "Crescendo", dur: "4",
-    tags: ["Programação","Software","Banco de Dados"]
-  },
-  "Arquitetura e Urbanismo": {
-    vec: [5,4,0,3,2,9,3,3],
-    desc: "Projeto de espaços habitáveis com foco em estética, funcionalidade e planejamento urbano.",
-    carreiras: "Arquiteto, urbanista, paisagista, designer de interiores.",
-    notaSISU: "727.00", sal: "R$ 3.800–9.000", salMid: 6400,
-    emp: "Média", empScore: 5, dem: "Estável", dur: "5",
-    tags: ["Design","Cidade","Projetos"]
-  },
-  "Artes Cênicas": {
-    vec: [0,5,0,1,1,10,0,6],
-    desc: "Teatro, dança e performance — teoria e prática das artes do corpo.",
-    carreiras: "Ator, diretor, coreógrafo, produtor cultural, professor.",
-    notaSISU: "611.20", sal: "R$ 2.500–6.000", salMid: 4250,
-    emp: "Baixa", empScore: 3, dem: "Competitiva", dur: "4",
-    tags: ["Teatro","Dança","Expressão"]
-  },
-  "Artes Visuais": {
-    vec: [1,5,0,2,1,10,1,2],
-    desc: "Pintura, escultura, fotografia, vídeo e arte digital.",
-    carreiras: "Artista, curador, crítico de arte, professor, galerista.",
-    notaSISU: "603.80", sal: "R$ 2.800–7.000", salMid: 4900,
-    emp: "Média", empScore: 4, dem: "Competitiva", dur: "4",
-    tags: ["Arte","Visual","Criatividade"]
-  },
-  "Biblioteconomia": {
-    vec: [1,7,0,3,2,3,0,5],
-    desc: "Organização, gestão e disseminação da informação em acervos físicos e digitais.",
-    carreiras: "Bibliotecário, gestor de informação, analista de documentação, arquivista.",
-    notaSISU: "588.20", sal: "R$ 3.000–6.500", salMid: 4750,
-    emp: "Média", empScore: 5, dem: "Estável", dur: "4",
-    tags: ["Informação","Documentação","Gestão"]
-  },
-  "Biomedicina": {
-    vec: [7,1,9,5,1,0,3,2],
-    desc: "Diagnóstico laboratorial, análises clínicas e pesquisa aplicada à saúde humana.",
-    carreiras: "Biomédico clínico, pesquisador, hematologista, citologista.",
-    notaSISU: "710.40", sal: "R$ 4.000–9.500", salMid: 6750,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Diagnóstico","Laboratório","Pesquisa"]
-  },
-  "Biotecnologia": {
-    vec: [7,2,7,7,2,0,6,1],
-    desc: "Aplicação de tecnologia em sistemas biológicos para novos produtos e tratamentos.",
-    carreiras: "Pesquisador, analista, desenvolvedor de bioprodutos, consultor.",
-    notaSISU: "748.60", sal: "R$ 5.500–12.000", salMid: 8750,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Biotech","Inovação","Laboratório"]
-  },
-  "Ciências Agrárias": {
-    vec: [6,2,2,3,3,0,8,2],
-    desc: "Produção agropecuária sustentável: solo, plantas e animais.",
-    carreiras: "Engenheiro agrônomo, pesquisador, consultor agrícola.",
-    notaSISU: "641.30", sal: "R$ 4.000–9.000", salMid: 6500,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Agro","Sustentabilidade","Campo"]
-  },
-  "Ciências Atuariais": {
-    vec: [9,1,0,5,7,0,0,1],
-    desc: "Matemática e estatística para análise de riscos em seguros e finanças.",
-    carreiras: "Atuário, analista de riscos, consultor financeiro.",
-    notaSISU: "709.50", sal: "R$ 5.000–11.000", salMid: 8000,
-    emp: "Alta", empScore: 8, dem: "Estável", dur: "4",
-    tags: ["Matemática","Risco","Finanças"]
-  },
-  "Ciências Biológicas": {
-    vec: [6,3,5,3,1,1,8,2],
-    desc: "Seres vivos, processos vitais e relações ecológicas.",
-    carreiras: "Biólogo, pesquisador, professor, perito ambiental.",
-    notaSISU: "689.40", sal: "R$ 3.500–8.000", salMid: 5750,
-    emp: "Média", empScore: 5, dem: "Estável", dur: "4",
-    tags: ["Biologia","Ecologia","Pesquisa"]
-  },
-  "Ciências Biomédicas": {
-    vec: [7,2,8,6,1,0,4,2],
-    desc: "Pesquisa e análise de processos biológicos relacionados à saúde humana.",
-    carreiras: "Pesquisador, analista biomédico, professor universitário.",
-    notaSISU: "735.80", sal: "R$ 4.500–10.000", salMid: 7250,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Pesquisa","Saúde","Laboratório"]
-  },
-  "Ciências Contábeis": {
-    vec: [7,2,0,4,9,1,0,2],
-    desc: "Gestão financeira, contabilidade e controle patrimonial.",
-    carreiras: "Contador, auditor, controller, consultor tributário.",
-    notaSISU: "641.90", sal: "R$ 4.000–9.000", salMid: 6500,
-    emp: "Alta", empScore: 8, dem: "Estável", dur: "4",
-    tags: ["Finanças","Auditoria","Tributário"]
-  },
-  "Ciências da Computação": {
-    vec: [9,1,0,10,3,2,0,2],
-    desc: "Algoritmos, software, inteligência artificial e sistemas computacionais.",
-    carreiras: "Desenvolvedor, cientista de dados, arquiteto de software, pesquisador.",
-    notaSISU: "750.10", sal: "R$ 6.000–20.000", salMid: 13000,
-    emp: "Muito Alta", empScore: 10, dem: "Crescendo", dur: "4",
-    tags: ["Programação","IA","Sistemas"]
-  },
-  "Ciência de Dados": {
-    vec: [9,1,1,10,4,1,1,1],
-    desc: "Análise e interpretação de grandes volumes de dados para apoio à decisão.",
-    carreiras: "Cientista de dados, engenheiro de ML, analista de BI.",
-    notaSISU: "762.30", sal: "R$ 6.000–22.000", salMid: 14000,
-    sisuEstimated: true,
-    emp: "Muito Alta", empScore: 10, dem: "Crescendo", dur: "4",
-    tags: ["Dados","Machine Learning","Análise"]
-  },
-  "Ciência Política": {
-    vec: [1,9,0,1,4,2,1,7],
-    desc: "Análise de sistemas políticos, poder, Estado e relações internacionais.",
-    carreiras: "Cientista político, consultor, analista de políticas públicas, pesquisador.",
-    notaSISU: "668.70", sal: "R$ 3.800–9.000", salMid: 6400,
-    emp: "Média", empScore: 5, dem: "Estável", dur: "4",
-    tags: ["Política","Estado","Análise"]
-  },
-  "Ciências dos Alimentos": {
-    vec: [7,1,3,4,3,0,5,2],
-    desc: "Propriedades, processamento, segurança e conservação de alimentos.",
-    carreiras: "Pesquisador, tecnólogo de alimentos, analista de qualidade.",
-    notaSISU: "678.20", sal: "R$ 4.200–8.500", salMid: 6350,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Alimentos","Qualidade","Segurança"]
-  },
-  "Ciências Econômicas": {
-    vec: [7,5,0,4,8,1,2,3],
-    desc: "Produção, distribuição e consumo: análise micro e macroeconômica.",
-    carreiras: "Economista, analista de mercado, pesquisador, consultor.",
-    notaSISU: "714.60", sal: "R$ 5.000–14.000", salMid: 9500,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Mercado","Análise","Política Econômica"]
-  },
-  "Ciências Sociais": {
-    vec: [1,9,1,1,2,3,3,7],
-    desc: "Análise de sociedades humanas, culturas e dinâmicas sociais.",
-    carreiras: "Pesquisador, consultor social, analista de políticas, professor.",
-    notaSISU: "632.50", sal: "R$ 3.200–7.000", salMid: 5100,
-    emp: "Média", empScore: 4, dem: "Estável", dur: "4",
-    tags: ["Sociedade","Cultura","Pesquisa"]
-  },
-  "Cinema e Audiovisual": {
-    vec: [1,5,0,4,3,10,0,4],
-    desc: "Roteiro, direção, produção e linguagem cinematográfica.",
-    carreiras: "Cineasta, diretor, roteirista, produtor, editor de vídeo.",
-    notaSISU: "651.80", sal: "R$ 3.000–8.500", salMid: 5750,
-    emp: "Média", empScore: 4, dem: "Competitiva", dur: "4",
-    tags: ["Cinema","Roteiro","Produção"]
-  },
-  "Comércio Exterior": {
-    vec: [2,4,0,3,8,2,1,4],
-    desc: "Operações de importação e exportação, logística internacional e relações comerciais.",
-    carreiras: "Analista de comércio exterior, despachante aduaneiro, gestor de logística.",
-    notaSISU: "638.40", sal: "R$ 3.800–9.000", salMid: 6400,
-    emp: "Alta", empScore: 6, dem: "Estável", dur: "4",
-    tags: ["Exportação","Logística","Internacional"]
-  },
-  "Comunicação Social": {
-    vec: [0,4,0,3,3,9,0,6],
-    desc: "Rádio, TV, mídias digitais e produção de conteúdo multiplataforma.",
-    carreiras: "Produtor de conteúdo, apresentador, repórter, gestor de mídias.",
-    notaSISU: "633.60", sal: "R$ 2.800–7.500", salMid: 5150,
-    emp: "Média", empScore: 5, dem: "Competitiva", dur: "4",
-    tags: ["Mídia","Conteúdo","Comunicação"]
-  },
-  "Design": {
-    vec: [4,3,0,5,4,9,2,3],
-    desc: "Soluções visuais e funcionais para produtos, marcas e interfaces digitais.",
-    carreiras: "Designer gráfico, UX/UI designer, diretor de arte.",
-    notaSISU: "680.90", sal: "R$ 3.500–10.000", salMid: 6750,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["UI/UX","Visual","Branding"]
-  },
-  "Direito": {
-    vec: [2,9,2,1,4,3,1,7],
-    desc: "Leis, justiça, advocacia e regulação da vida em sociedade.",
-    carreiras: "Advogado, juiz, promotor, defensor público, consultor jurídico.",
-    notaSISU: "754.80", sal: "R$ 4.000–25.000", salMid: 12000,
-    emp: "Alta", empScore: 7, dem: "Competitiva", dur: "5",
-    tags: ["Leis","Justiça","Advocacia"]
-  },
-  "Educação Especial": {
-    vec: [0,5,4,1,1,2,0,10],
-    desc: "Ensino e inclusão de pessoas com deficiência ou necessidades educacionais especiais.",
-    carreiras: "Educador especial, pedagogo, terapeuta, gestor de inclusão.",
-    notaSISU: "578.40", sal: "R$ 2.500–6.000", salMid: 4250,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Inclusão","Deficiência","Educação"]
-  },
-  "Educação Física e Esporte": {
-    vec: [3,3,7,2,2,2,3,7],
-    desc: "Promoção da saúde e desempenho por meio de atividades físicas.",
-    carreiras: "Professor, personal trainer, preparador físico, gestor esportivo.",
-    notaSISU: "634.70", sal: "R$ 2.800–7.000", salMid: 4900,
-    emp: "Alta", empScore: 6, dem: "Estável", dur: "4",
-    tags: ["Esporte","Saúde","Movimento"]
-  },
-  "Enfermagem": {
-    vec: [3,4,9,2,2,1,2,9],
-    desc: "Cuidado integral à saúde humana em diferentes níveis de atenção.",
-    carreiras: "Enfermeiro, gestor hospitalar, educador em saúde, pesquisador.",
-    notaSISU: "682.30", sal: "R$ 3.500–9.000", salMid: 6250,
-    emp: "Muito Alta", empScore: 9, dem: "Crescendo", dur: "5",
-    tags: ["Cuidado","Hospital","Saúde Coletiva"]
-  },
-  "Engenharia Aeronáutica": {
-    vec: [10,1,0,8,3,1,2,2],
-    desc: "Projeto, construção e manutenção de aeronaves e sistemas aeroespaciais.",
-    carreiras: "Engenheiro aeronáutico, projetista, analista de sistemas de voo.",
-    notaSISU: "769.50", sal: "R$ 6.000–16.000", salMid: 11000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Aviação","Aeroespacial","Projetos"]
-  },
-  "Engenharia Ambiental": {
-    vec: [8,2,1,5,2,0,9,2],
-    desc: "Soluções tecnológicas para preservação ambiental e sustentabilidade.",
-    carreiras: "Engenheiro ambiental, consultor, gestor de recursos naturais.",
-    notaSISU: "699.10", sal: "R$ 4.800–10.000", salMid: 7400,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Meio Ambiente","Sustentabilidade","Tecnologia"]
-  },
-  "Engenharia Biomédica": {
-    vec: [8,1,6,8,1,0,1,2],
-    desc: "Desenvolvimento de equipamentos, dispositivos e sistemas aplicados à medicina.",
-    carreiras: "Engenheiro biomédico, desenvolvedor de dispositivos médicos, pesquisador.",
-    notaSISU: "736.20", sal: "R$ 5.500–14.000", salMid: 9750,
-    emp: "Alta", empScore: 8, dem: "Crescendo", dur: "5",
-    tags: ["Bioengenharia","Equipamentos","Saúde"]
-  },
-  "Engenharia Civil": {
-    vec: [9,1,0,5,3,1,4,3],
-    desc: "Projetos, construção e manutenção de edificações e infraestrutura urbana.",
-    carreiras: "Engenheiro civil, projetista, fiscal de obras, gestor de projetos.",
-    notaSISU: "712.40", sal: "R$ 5.000–13.000", salMid: 9000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Construção","Infraestrutura","Cálculo"]
-  },
-  "Engenharia de Alimentos": {
-    vec: [8,1,2,5,3,0,4,1],
-    desc: "Processos industriais de produção, conservação e desenvolvimento de alimentos.",
-    carreiras: "Engenheiro de alimentos, gerente de produção, analista de qualidade.",
-    notaSISU: "672.80", sal: "R$ 4.500–10.000", salMid: 7250,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Alimentos","Indústria","Processos"]
-  },
-  "Engenharia de Computação": {
-    vec: [10,0,0,9,2,1,0,2],
-    desc: "Hardware, firmware e software integrados em sistemas computacionais completos.",
-    carreiras: "Engenheiro de computação, desenvolvedor embarcado, arquiteto de sistemas.",
-    notaSISU: "745.20", sal: "R$ 5.500–18.000", salMid: 11750,
-    emp: "Muito Alta", empScore: 9, dem: "Crescendo", dur: "5",
-    tags: ["Hardware","Software","Sistemas Embarcados"]
-  },
-  "Engenharia de Energia": {
-    vec: [9,0,0,6,2,0,6,1],
-    desc: "Geração, transmissão, distribuição e uso eficiente de energia, incluindo renováveis.",
-    carreiras: "Engenheiro de energia, consultor em eficiência energética, pesquisador.",
-    notaSISU: "695.40", sal: "R$ 5.000–13.000", salMid: 9000,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Energia","Renováveis","Sustentabilidade"]
-  },
-  "Engenharia de Materiais": {
-    vec: [9,1,0,6,2,0,5,1],
-    desc: "Desenvolvimento, processamento e aplicação de materiais de alta performance.",
-    carreiras: "Engenheiro de materiais, pesquisador, desenvolvedor de produtos.",
-    notaSISU: "689.70", sal: "R$ 5.000–12.000", salMid: 8500,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Materiais","Inovação","Pesquisa"]
-  },
-  "Engenharia de Petróleo": {
-    vec: [9,0,0,6,3,0,5,1],
-    desc: "Exploração, extração e processamento de petróleo e gás natural.",
-    carreiras: "Engenheiro de petróleo, consultor, especialista em reservatórios.",
-    notaSISU: "721.60", sal: "R$ 7.000–18.000", salMid: 12500,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Petróleo","Gás","Exploração"]
-  },
-  "Engenharia de Produção": {
-    vec: [8,2,0,6,7,1,2,4],
-    desc: "Otimização de sistemas produtivos, logística e gestão industrial.",
-    carreiras: "Engenheiro de produção, consultor, gestor industrial, supply chain.",
-    notaSISU: "718.60", sal: "R$ 5.500–13.000", salMid: 9250,
-    emp: "Alta", empScore: 8, dem: "Estável", dur: "5",
-    tags: ["Produção","Otimização","Logística"]
-  },
-  "Engenharia de Software": {
-    vec: [8,0,0,10,4,2,0,2],
-    desc: "Desenvolvimento de software com foco em qualidade, arquitetura e processos ágeis.",
-    carreiras: "Engenheiro de software, líder técnico, arquiteto, dev sênior.",
-    notaSISU: "731.80", sal: "R$ 6.000–22.000", salMid: 14000,
-    sisuEstimated: true,
-    emp: "Muito Alta", empScore: 10, dem: "Crescendo", dur: "4",
-    tags: ["Software","Arquitetura","Ágil"]
-  },
-  "Engenharia de Telecomunicações": {
-    vec: [9,0,0,9,2,0,1,1],
-    desc: "Sistemas de comunicação: redes, wireless, satélite e protocolos digitais.",
-    carreiras: "Engenheiro de telecom, especialista em redes, consultor em conectividade.",
-    notaSISU: "719.30", sal: "R$ 5.500–14.000", salMid: 9750,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Redes","Wireless","Comunicação"]
-  },
-  "Engenharia Elétrica": {
-    vec: [10,0,0,8,2,0,2,1],
-    desc: "Projeto e desenvolvimento de sistemas elétricos, eletrônicos e de energia.",
-    carreiras: "Engenheiro eletricista, projetista, gestor de energia.",
-    notaSISU: "730.80", sal: "R$ 5.500–14.000", salMid: 9750,
-    emp: "Alta", empScore: 8, dem: "Estável", dur: "5",
-    tags: ["Eletricidade","Energia","Sistemas"]
-  },
-  "Engenharia Florestal": {
-    vec: [7,2,0,3,2,0,9,2],
-    desc: "Manejo sustentável de florestas, recursos madeireiros e conservação ambiental.",
-    carreiras: "Engenheiro florestal, pesquisador, gestor ambiental, consultor.",
-    notaSISU: "649.80", sal: "R$ 4.000–9.000", salMid: 6500,
-    emp: "Alta", empScore: 6, dem: "Estável", dur: "5",
-    tags: ["Florestas","Manejo","Conservação"]
-  },
-  "Engenharia Mecânica": {
-    vec: [10,0,0,6,3,0,2,2],
-    desc: "Projeto, análise e fabricação de sistemas e componentes mecânicos.",
-    carreiras: "Engenheiro mecânico, projetista, gestor de manufatura.",
-    notaSISU: "724.90", sal: "R$ 5.500–13.000", salMid: 9250,
-    emp: "Alta", empScore: 8, dem: "Estável", dur: "5",
-    tags: ["Mecânica","Projetos","Indústria"]
-  },
-  "Engenharia Mecatrônica": {
-    vec: [10,0,0,9,2,0,1,2],
-    desc: "Mecânica, eletrônica e computação integradas em sistemas automatizados.",
-    carreiras: "Engenheiro mecatrônico, desenvolvedor de robótica, especialista em automação.",
-    notaSISU: "742.10", sal: "R$ 5.500–15.000", salMid: 10250,
-    emp: "Alta", empScore: 8, dem: "Crescendo", dur: "5",
-    tags: ["Robótica","Automação","IoT"]
-  },
-  "Engenharia Naval": {
-    vec: [9,0,0,5,2,0,4,1],
-    desc: "Projeto e construção de embarcações, plataformas offshore e sistemas navais.",
-    carreiras: "Engenheiro naval, projetista, especialista offshore, consultor marítimo.",
-    notaSISU: "711.20", sal: "R$ 6.000–15.000", salMid: 10500,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Naval","Offshore","Projetos"]
-  },
-  "Engenharia Química": {
-    vec: [10,0,0,6,2,0,4,1],
-    desc: "Processos químicos industriais e desenvolvimento de novos produtos.",
-    carreiras: "Engenheiro químico, gestor de processos, pesquisador, consultor.",
-    notaSISU: "726.30", sal: "R$ 5.500–13.000", salMid: 9250,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Química","Processos","Petroquímica"]
-  },
-  "Engenharia Sanitária": {
-    vec: [8,2,1,5,2,0,8,3],
-    desc: "Saneamento básico, tratamento de água e esgoto e gestão de resíduos.",
-    carreiras: "Engenheiro sanitarista, gestor público, consultor ambiental.",
-    notaSISU: "683.60", sal: "R$ 4.500–10.000", salMid: 7250,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Saneamento","Água","Resíduos"]
-  },
-  "Estatística": {
-    vec: [9,2,1,7,5,0,1,1],
-    desc: "Coleta, análise e interpretação de dados para tomada de decisão.",
-    carreiras: "Estatístico, analista de dados, cientista de dados, consultor.",
-    notaSISU: "698.40", sal: "R$ 5.000–14.000", salMid: 9500,
-    emp: "Alta", empScore: 8, dem: "Crescendo", dur: "4",
-    tags: ["Dados","Análise","Probabilidade"]
-  },
-  "Estética e Cosmética": {
-    vec: [3,2,5,2,4,5,1,6],
-    desc: "Cuidados estéticos, cosmetologia, procedimentos e gestão de espaços de beleza.",
-    carreiras: "Esteticista, consultor de beleza, gestor de clínica estética.",
-    notaSISU: "588.60", sal: "R$ 2.800–7.500", salMid: 5150,
-    emp: "Alta", empScore: 6, dem: "Crescendo", dur: "4",
-    tags: ["Beleza","Cosmética","Bem-estar"]
-  },
-  "Farmácia": {
-    vec: [7,2,7,4,2,0,4,3],
-    desc: "Desenvolvimento, produção e controle de medicamentos e cosméticos.",
-    carreiras: "Farmacêutico, pesquisador, gestor de farmácia hospitalar, analista.",
-    notaSISU: "712.60", sal: "R$ 4.000–10.000", salMid: 7000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Medicamentos","Saúde","Laboratório"]
-  },
-  "Filosofia": {
-    vec: [1,10,0,0,1,4,1,3],
-    desc: "Reflexão crítica sobre existência, ética, conhecimento e política.",
-    carreiras: "Professor, pesquisador, consultor, escritor, redator.",
-    notaSISU: "591.30", sal: "R$ 2.800–6.500", salMid: 4650,
-    emp: "Baixa", empScore: 3, dem: "Competitiva", dur: "4",
-    tags: ["Pensamento","Ética","Crítica"]
-  },
-  "Física": {
-    vec: [10,2,0,7,0,0,3,0],
-    desc: "Leis fundamentais que regem matéria, energia, espaço e tempo.",
-    carreiras: "Físico, pesquisador, professor, engenheiro de projetos de alta tecnologia.",
-    notaSISU: "714.20", sal: "R$ 6.000–16.000", salMid: 11000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Pesquisa","Universo","Fundamentos"]
-  },
-  "Física Médica": {
-    vec: [9,1,7,7,1,0,1,2],
-    desc: "Princípios físicos aplicados a diagnóstico, radioterapia e equipamentos médicos.",
-    carreiras: "Físico médico, pesquisador, desenvolvedor de equipamentos hospitalares.",
-    notaSISU: "728.40", sal: "R$ 7.000–16.000", salMid: 11500,
-    sisuEstimated: true,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Física","Medicina","Diagnóstico"]
-  },
-  "Fisioterapia": {
-    vec: [4,3,9,2,1,1,1,8],
-    desc: "Prevenção e tratamento de disfunções do movimento e reabilitação funcional.",
-    carreiras: "Fisioterapeuta, pesquisador, gestor de clínica, professor.",
-    notaSISU: "694.80", sal: "R$ 3.500–9.000", salMid: 6250,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Reabilitação","Movimento","Saúde"]
-  },
-  "Fonoaudiologia": {
-    vec: [3,4,8,2,1,2,0,8],
-    desc: "Avaliação e tratamento de distúrbios da comunicação e deglutição.",
-    carreiras: "Fonoaudiólogo, pesquisador, professor, consultor em saúde.",
-    notaSISU: "688.50", sal: "R$ 3.500–8.500", salMid: 6000,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Fala","Audição","Terapia"]
-  },
-  "Gastronomia": {
-    vec: [2,3,3,2,4,6,2,5],
-    desc: "Arte culinária, técnicas de cozinha, gestão de restaurantes e food business.",
-    carreiras: "Chef, consultor gastronômico, gestor de restaurante, empreendedor.",
-    notaSISU: "609.40", sal: "R$ 2.800–8.500", salMid: 5650,
-    emp: "Alta", empScore: 6, dem: "Crescendo", dur: "4",
-    tags: ["Culinária","Chef","Food Business"]
-  },
-  "Geofísica": {
-    vec: [9,1,0,5,2,0,7,0],
-    desc: "Estudo da Terra por métodos físicos e matemáticos.",
-    carreiras: "Geofísico, pesquisador, consultor em exploração mineral e petróleo.",
-    notaSISU: "680.10", sal: "R$ 6.000–14.000", salMid: 10000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Terra","Exploração","Física"]
-  },
-  "Geografia": {
-    vec: [3,7,0,2,2,2,6,5],
-    desc: "Espaço geográfico, relações sociedade-natureza e planejamento territorial.",
-    carreiras: "Geógrafo, professor, planejador territorial, analista ambiental.",
-    notaSISU: "617.60", sal: "R$ 3.200–7.500", salMid: 5350,
-    emp: "Média", empScore: 5, dem: "Estável", dur: "4",
-    tags: ["Território","Espaço","Planejamento"]
-  },
-  "Geologia": {
-    vec: [8,2,0,4,2,0,8,1],
-    desc: "Composição, estrutura e história da Terra e seus recursos.",
-    carreiras: "Geólogo, consultor em mineração, pesquisador de petróleo.",
-    notaSISU: "674.30", sal: "R$ 6.000–15.000", salMid: 10500,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Rochas","Recursos Naturais","Exploração"]
-  },
-  "Gestão Ambiental": {
-    vec: [4,5,1,4,5,1,9,4],
-    desc: "Planejamento e gestão de recursos naturais com foco em sustentabilidade.",
-    carreiras: "Gestor ambiental, consultor, analista de sustentabilidade corporativa.",
-    notaSISU: "632.80", sal: "R$ 3.800–8.500", salMid: 6150,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Sustentabilidade","Recursos","Políticas"]
-  },
-  "Gestão de Recursos Humanos": {
-    vec: [1,4,1,2,7,2,0,8],
-    desc: "Recrutamento, desenvolvimento, clima organizacional e gestão de pessoas.",
-    carreiras: "Analista de RH, HRBP, gestor de pessoas, consultor organizacional.",
-    notaSISU: "613.80", sal: "R$ 3.500–8.500", salMid: 6000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Pessoas","Recrutamento","Clima"]
-  },
-  "Gestão Pública": {
-    vec: [2,6,1,2,7,1,1,8],
-    desc: "Administração de políticas públicas, orçamento e gestão governamental.",
-    carreiras: "Gestor público, analista de políticas, concursado, consultor em governo.",
-    notaSISU: "618.40", sal: "R$ 3.500–10.000", salMid: 6750,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Governo","Políticas","Concursos"]
-  },
-  "História": {
-    vec: [1,10,0,0,1,5,2,3],
-    desc: "Processos históricos, culturas e transformações das sociedades humanas.",
-    carreiras: "Historiador, professor, pesquisador, curador, museólogo.",
-    notaSISU: "619.80", sal: "R$ 2.800–6.500", salMid: 4650,
-    emp: "Média", empScore: 4, dem: "Competitiva", dur: "4",
-    tags: ["Passado","Cultura","Pesquisa"]
-  },
-  "Informática Biomédica": {
-    vec: [7,1,6,9,2,0,1,2],
-    desc: "Computação aplicada a soluções para saúde, medicina e pesquisa clínica.",
-    carreiras: "Analista de sistemas de saúde, pesquisador, desenvolvedor de software médico.",
-    notaSISU: "712.40", sal: "R$ 5.000–12.000", salMid: 8500,
-    sisuEstimated: true,
-    emp: "Alta", empScore: 8, dem: "Crescendo", dur: "4",
-    tags: ["Saúde","TI","Computação"]
-  },
-  "Jornalismo": {
-    vec: [1,7,1,3,3,7,1,7],
-    desc: "Apuração, produção e disseminação de informações e narrativas jornalísticas.",
-    carreiras: "Jornalista, editor, repórter, produtor de conteúdo digital.",
-    notaSISU: "665.40", sal: "R$ 2.800–8.000", salMid: 5400,
-    emp: "Média", empScore: 5, dem: "Competitiva", dur: "4",
-    tags: ["Notícias","Mídia","Comunicação"]
-  },
-  "Letras": {
-    vec: [1,9,0,1,1,7,1,4],
-    desc: "Línguas, literaturas e manifestações culturais do mundo.",
-    carreiras: "Professor, tradutor, revisor, pesquisador linguístico, escritor.",
-    notaSISU: "607.20", sal: "R$ 2.800–6.500", salMid: 4650,
-    emp: "Média", empScore: 5, dem: "Estável", dur: "4",
-    tags: ["Línguas","Literatura","Cultura"]
-  },
-  "Logística": {
-    vec: [4,1,0,5,8,0,2,3],
-    desc: "Planejamento, operação e controle de fluxos de produtos e informação na cadeia de suprimentos.",
-    carreiras: "Analista de logística, supply chain manager, coordenador de transportes.",
-    notaSISU: "608.60", sal: "R$ 3.500–9.500", salMid: 6500,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Supply Chain","Transporte","Armazém"]
-  },
-  "Marketing": {
-    vec: [3,4,0,5,9,6,1,6],
-    desc: "Estratégias de mercado, comunicação e relacionamento com consumidores.",
-    carreiras: "Profissional de marketing digital, gestor de marcas, analista de mercado.",
-    notaSISU: "672.10", sal: "R$ 3.500–11.000", salMid: 7250,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Mercado","Branding","Digital"]
-  },
-  "Matemática": {
-    vec: [10,2,0,6,2,0,1,0],
-    desc: "Estruturas abstratas, padrões e relações quantitativas fundamentais.",
-    carreiras: "Matemático, professor, pesquisador, analista quantitativo, atuário.",
-    notaSISU: "692.80", sal: "R$ 5.000–14.000", salMid: 9500,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Números","Lógica","Abstração"]
-  },
-  "Matemática Aplicada e Computação Científica": {
-    vec: [10,1,0,9,2,0,2,0],
-    desc: "Algoritmos e modelos computacionais aplicados a ciência e engenharia.",
-    carreiras: "Pesquisador, desenvolvedor de algoritmos, cientista computacional.",
-    notaSISU: "728.60", sal: "R$ 5.500–15.000", salMid: 10250,
-    sisuEstimated: true,
-    emp: "Alta", empScore: 8, dem: "Crescendo", dur: "4",
-    tags: ["Matemática","Computação","Ciência"]
-  },
-  "Medicina": {
-    vec: [5,4,10,4,2,1,2,9],
-    desc: "Diagnóstico, tratamento e prevenção de doenças. A graduação mais longa e competitiva.",
-    carreiras: "Médico generalista, especialista, pesquisador clínico, professor.",
-    notaSISU: "807.90", sal: "R$ 10.000–30.000", salMid: 20000,
-    emp: "Muito Alta", empScore: 10, dem: "Alta", dur: "6",
-    tags: ["Medicina","Diagnóstico","Pesquisa Clínica"]
-  },
-  "Medicina Veterinária": {
-    vec: [5,2,8,3,2,1,6,7],
-    desc: "Saúde animal, clínica, cirurgia e saúde pública veterinária.",
-    carreiras: "Médico veterinário, pesquisador, inspetor sanitário, consultor.",
-    notaSISU: "714.80", sal: "R$ 4.000–10.000", salMid: 7000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "5",
-    tags: ["Animais","Clínica","Saúde Pública"]
-  },
-  "Meteorologia": {
-    vec: [8,2,0,5,1,0,7,1],
-    desc: "Atmosfera, clima e previsão do tempo por métodos científicos.",
-    carreiras: "Meteorologista, pesquisador climático, analista, consultor.",
-    notaSISU: "678.90", sal: "R$ 5.000–11.000", salMid: 8000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Clima","Atmosfera","Previsão"]
-  },
-  "Museologia": {
-    vec: [1,8,0,2,2,6,1,4],
-    desc: "Preservação, curadoria e gestão de acervos em museus e centros culturais.",
-    carreiras: "Museólogo, curador, gestor cultural, educador patrimonial.",
-    notaSISU: "572.60", sal: "R$ 2.500–6.000", salMid: 4250,
-    emp: "Baixa", empScore: 3, dem: "Competitiva", dur: "4",
-    tags: ["Museu","Curadoria","Patrimônio"]
-  },
-  "Música": {
-    vec: [2,5,0,2,1,10,0,5],
-    desc: "Teoria, composição e execução musical em múltiplos gêneros.",
-    carreiras: "Músico, compositor, professor, regente, produtor musical.",
-    notaSISU: "625.40", sal: "R$ 2.500–7.000", salMid: 4750,
-    emp: "Baixa", empScore: 3, dem: "Competitiva", dur: "4",
-    tags: ["Som","Composição","Performance"]
-  },
-  "Nutrição": {
-    vec: [4,3,8,2,2,1,3,7],
-    desc: "Alimentação, nutrição clínica e promoção da saúde humana.",
-    carreiras: "Nutricionista, pesquisador, consultor alimentar, gestor de UAN.",
-    notaSISU: "684.20", sal: "R$ 3.000–8.000", salMid: 5500,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Alimentação","Saúde","Clínica"]
-  },
-  "Oceanografia": {
-    vec: [7,3,2,3,1,1,9,2],
-    desc: "Oceanos, mares, zonas costeiras e seus ecossistemas.",
-    carreiras: "Oceanógrafo, pesquisador, consultor ambiental marinho.",
-    notaSISU: "659.80", sal: "R$ 4.500–10.000", salMid: 7250,
-    emp: "Média", empScore: 5, dem: "Crescendo", dur: "4",
-    tags: ["Oceanos","Ecossistemas","Pesquisa"]
-  },
-  "Odontologia": {
-    vec: [5,2,9,3,3,2,0,7],
-    desc: "Prevenção, diagnóstico e tratamento de doenças bucais.",
-    carreiras: "Cirurgião-dentista, especialista, pesquisador, professor.",
-    notaSISU: "754.30", sal: "R$ 5.000–18.000", salMid: 11500,
-    emp: "Alta", empScore: 8, dem: "Estável", dur: "5",
-    tags: ["Saúde Bucal","Clínica","Cirurgia"]
-  },
-  "Optometria": {
-    vec: [4,2,7,4,2,1,0,6],
-    desc: "Exame, diagnóstico e correção de problemas da visão.",
-    carreiras: "Optometrista, especialista em lentes, pesquisador da visão.",
-    notaSISU: "668.40", sal: "R$ 3.500–8.500", salMid: 6000,
-    sisuEstimated: true,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Visão","Saúde","Óptica"]
-  },
-  "Pedagogia": {
-    vec: [1,7,3,1,2,3,1,9],
-    desc: "Processos de ensino e aprendizagem em contextos formais e informais.",
-    carreiras: "Pedagogo, professor, gestor educacional, orientador escolar.",
-    notaSISU: "604.60", sal: "R$ 2.500–6.000", salMid: 4250,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Educação","Ensino","Aprendizagem"]
-  },
-  "Psicologia": {
-    vec: [2,7,8,2,2,3,1,9],
-    desc: "Comportamento humano, processos mentais e saúde psicológica.",
-    carreiras: "Psicólogo clínico, organizacional, escolar, pesquisador.",
-    notaSISU: "745.60", sal: "R$ 3.500–10.000", salMid: 6750,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "5",
-    tags: ["Saúde Mental","Comportamento","Terapia"]
-  },
-  "Publicidade e Propaganda": {
-    vec: [1,4,0,4,7,9,1,6],
-    desc: "Criação e gestão de campanhas publicitárias e comunicação mercadológica.",
-    carreiras: "Publicitário, diretor de criação, planejador, gestor de contas.",
-    notaSISU: "668.40", sal: "R$ 3.200–10.000", salMid: 6600,
-    emp: "Média", empScore: 5, dem: "Competitiva", dur: "4",
-    tags: ["Publicidade","Criatividade","Mídia"]
-  },
-  "Química": {
-    vec: [9,1,2,5,2,0,5,1],
-    desc: "Matéria, suas transformações, propriedades e aplicações industriais.",
-    carreiras: "Químico, pesquisador, professor, analista laboratorial.",
-    notaSISU: "671.40", sal: "R$ 4.000–10.000", salMid: 7000,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Matéria","Laboratório","Síntese"]
-  },
-  "Radiologia": {
-    vec: [5,1,8,5,1,0,0,4],
-    desc: "Produção e análise de imagens médicas para diagnóstico: RX, TC, RM e ultrassom.",
-    carreiras: "Tecnólogo em radiologia, técnico de imagem, especialista em radioterapia.",
-    notaSISU: "658.20", sal: "R$ 3.500–8.000", salMid: 5750,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Imagem","Diagnóstico","Saúde"]
-  },
-  "Relações Internacionais": {
-    vec: [2,9,1,2,6,3,3,6],
-    desc: "Relações entre Estados, organizações e atores no cenário global.",
-    carreiras: "Diplomata, analista internacional, gestor de projetos globais, consultor.",
-    notaSISU: "706.80", sal: "R$ 4.500–12.000", salMid: 8250,
-    emp: "Média", empScore: 5, dem: "Competitiva", dur: "4",
-    tags: ["Diplomacia","Global","Política"]
-  },
-  "Saúde Pública": {
-    vec: [3,6,8,2,3,1,3,8],
-    desc: "Promoção, proteção e recuperação da saúde em nível coletivo e populacional.",
-    carreiras: "Sanitarista, gestor em saúde, pesquisador, educador em saúde.",
-    notaSISU: "668.20", sal: "R$ 4.000–9.000", salMid: 6500,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Saúde Coletiva","Políticas","Prevenção"]
-  },
-  "Serviço Social": {
-    vec: [0,6,3,0,2,1,1,10],
-    desc: "Intervenção em situações de vulnerabilidade social, política e assistência.",
-    carreiras: "Assistente social, gestor de políticas sociais, analista, consultor.",
-    notaSISU: "590.80", sal: "R$ 2.800–7.000", salMid: 4900,
-    emp: "Alta", empScore: 7, dem: "Estável", dur: "4",
-    tags: ["Social","Vulnerabilidade","Políticas"]
-  },
-  "Sistemas de Informação": {
-    vec: [7,2,0,9,6,2,0,3],
-    desc: "Gestão e desenvolvimento de sistemas de informação em organizações.",
-    carreiras: "Analista de sistemas, gestor de TI, desenvolvedor, consultor.",
-    notaSISU: "691.50", sal: "R$ 5.000–15.000", salMid: 10000,
-    emp: "Muito Alta", empScore: 9, dem: "Crescendo", dur: "4",
-    tags: ["Sistemas","TI","Desenvolvimento"]
-  },
-  "Terapia Ocupacional": {
-    vec: [2,4,8,2,1,3,1,9],
-    desc: "Atividades terapêuticas para reabilitação, inclusão e promoção de autonomia.",
-    carreiras: "Terapeuta ocupacional, pesquisador, gestor em saúde.",
-    notaSISU: "661.40", sal: "R$ 3.200–7.500", salMid: 5350,
-    emp: "Alta", empScore: 7, dem: "Crescendo", dur: "4",
-    tags: ["Reabilitação","Inclusão","Autonomia"]
-  },
-  "Têxtil e Moda": {
-    vec: [2,3,0,3,4,9,2,3],
-    desc: "Criação, produção e gestão no universo têxtil, de moda e vestuário.",
-    carreiras: "Estilista, gestor de produção têxtil, consultor de moda.",
-    notaSISU: "621.80", sal: "R$ 2.800–7.000", salMid: 4900,
-    emp: "Média", empScore: 4, dem: "Competitiva", dur: "4",
-    tags: ["Moda","Design","Têxtil"]
-  },
-  "Turismo e Hotelaria": {
-    vec: [1,4,0,2,5,4,2,7],
-    desc: "Planejamento turístico, gestão hoteleira e experiências de viagem.",
-    carreiras: "Gestor de hotel, guia de turismo, planejador de eventos, consultor.",
-    notaSISU: "598.40", sal: "R$ 2.800–7.500", salMid: 5150,
-    emp: "Média", empScore: 5, dem: "Crescendo", dur: "4",
-    tags: ["Turismo","Hotelaria","Eventos"]
-  },
-  "Zootecnia": {
-    vec: [5,2,5,3,3,0,8,4],
-    desc: "Produção, manejo e conservação de animais domésticos e silvestres.",
-    carreiras: "Zootecnista, gestor de produção animal, pesquisador.",
-    notaSISU: "643.70", sal: "R$ 3.800–8.500", salMid: 6150,
-    emp: "Alta", empScore: 6, dem: "Estável", dur: "4",
-    tags: ["Animais","Produção","Manejo"]
-  }
-};
-
-/* ============================================================
-   FIX 1 — PROFILE BUILDER with rebalanced weights
-   Original: area=3.0, motivation=1.5
-   Fixed:    area=2.0, motivation=2.0, talent=2.0, problem=2.0
-   Rationale: cosine similarity normalises magnitudes, but a
-   3× weight on a single 3-point question lets it dominate
-   over 9 other signals. Reducing to 2× makes the remaining
-   questions have proportional influence.
-============================================================ */
 function buildUserVector(answers) {
   const v = [0,0,0,0,0,0,0,0];
-
   const areaMap = {
-    saude:      [0,0,3,0,0,0,0,2], tecnologia: [2,0,0,3,0,0,0,0],
-    exatas:     [3,0,0,1,0,0,1,0], negocios:   [1,1,0,1,3,0,0,1],
-    artes:      [0,1,0,0,0,3,0,1], humanas:    [0,3,0,0,0,1,0,2],
-    ambiental:  [1,1,0,0,0,0,3,0]
+    saude:[0,0,3,0,0,0,0,2], tecnologia:[2,0,0,3,0,0,0,0],
+    exatas:[3,0,0,1,0,0,1,0], negocios:[1,1,0,1,3,0,0,1],
+    artes:[0,1,0,0,0,3,0,1], humanas:[0,3,0,0,0,1,0,2],
+    ambiental:[1,1,0,0,0,0,3,0]
   };
-  addVec(v, areaMap[getAnswer('area', answers)] || [], 2.5); 
-
+  addVec(v, areaMap[getAnswer('area',answers)]||[], 2.5);
   const talentMap = {
-    analitico:      [3,0,0,2,1,0,1,0], criativo:       [0,1,0,1,0,3,0,1],
-    comunicativo:   [0,2,0,0,1,2,0,3], cientifico:     [2,1,2,1,0,0,2,0],
-    organizacional: [1,1,0,1,3,0,0,2], empatico:       [0,2,3,0,0,0,1,3]
+    analitico:[3,0,0,2,1,0,1,0], criativo:[0,1,0,1,0,3,0,1],
+    comunicativo:[0,2,0,0,1,2,0,3], cientifico:[2,1,2,1,0,0,2,0],
+    organizacional:[1,1,0,1,3,0,0,2], empatico:[0,2,3,0,0,0,1,3]
   };
-  addVec(v, talentMap[getAnswer('talent', answers)] || [], 2.0);
-
+  addVec(v, talentMap[getAnswer('talent',answers)]||[], 2.0);
   const problemMap = {
-    tecnico:  [3,0,0,3,0,0,0,0], humano:   [0,2,3,0,0,0,0,3],
-    mercado:  [1,0,0,1,3,1,0,1], social:   [0,3,0,0,0,1,1,3],
-    criativo: [0,1,0,1,1,3,0,1], ambiental:[1,1,0,0,0,0,3,1]
+    tecnico:[3,0,0,3,0,0,0,0], humano:[0,2,3,0,0,0,0,3],
+    mercado:[1,0,0,1,3,1,0,1], social:[0,3,0,0,0,1,1,3],
+    criativo:[0,1,0,1,1,3,0,1], ambiental:[1,1,0,0,0,0,3,1]
   };
-  addVec(v, problemMap[getAnswer('problem', answers)] || [], 2.0);
-
+  addVec(v, problemMap[getAnswer('problem',answers)]||[], 2.0);
   const mathMap = {
-    alto:   [3,0,0,2,1,0,1,0], medio:  [1,1,0,1,1,1,1,0],
-    baixo:  [0,2,1,0,1,2,0,1], minimo: [0,3,1,0,0,3,0,1]
+    alto:[3,0,0,2,1,0,1,0], medio:[1,1,0,1,1,1,1,0],
+    baixo:[0,2,1,0,1,2,0,1], minimo:[0,3,1,0,0,3,0,1]
   };
-  addVec(v, mathMap[getAnswer('math', answers)] || [], 1.5);
-
+  addVec(v, mathMap[getAnswer('math',answers)]||[], 1.5);
   const techMap = {
-    "muito-alto": [2,0,0,3,1,1,0,0], "alto":    [1,0,0,2,1,1,0,0],
-    "moderado":   [1,0,0,1,1,1,0,0], "baixo":   [0,1,0,0,0,1,1,1]
+    "muito-alto":[2,0,0,3,1,1,0,0], alto:[1,0,0,2,1,1,0,0],
+    moderado:[1,0,0,1,1,1,0,0], baixo:[0,1,0,0,0,1,1,1]
   };
-  addVec(v, techMap[getAnswer('tech', answers)] || [], 1.5);
-
+  addVec(v, techMap[getAnswer('tech',answers)]||[], 1.5);
   const wsMap = {
-    sozinho:   [2,1,0,2,0,1,1,0], equipe:    [1,1,1,1,2,1,1,2],
-    publico:   [0,2,2,0,1,1,0,3], liderando: [1,1,1,1,3,1,0,2]
+    sozinho:[2,1,0,2,0,1,1,0], equipe:[1,1,1,1,2,1,1,2],
+    publico:[0,2,2,0,1,1,0,3], liderando:[1,1,1,1,3,1,0,2]
   };
-  addVec(v, wsMap[getAnswer('work_style', answers)] || [], 1.0);
-
+  addVec(v, wsMap[getAnswer('work_style',answers)]||[], 1.0);
   const envMap = {
-    lab:        [2,0,2,1,0,0,1,0], escritorio: [0,1,0,1,3,1,0,1],
-    campo:      [1,1,0,0,0,0,3,1], remoto:     [1,0,0,2,1,2,0,0],
-    educacao:   [0,2,1,0,0,1,1,3], estudio:    [0,1,0,1,1,3,0,1]
+    lab:[2,0,2,1,0,0,1,0], escritorio:[0,1,0,1,3,1,0,1],
+    campo:[1,1,0,0,0,0,3,1], remoto:[1,0,0,2,1,2,0,0],
+    educacao:[0,2,1,0,0,1,1,3], estudio:[0,1,0,1,1,3,0,1]
   };
-  addVec(v, envMap[getAnswer('environment', answers)] || [], 1.0);
-
+  addVec(v, envMap[getAnswer('environment',answers)]||[], 1.0);
   const motMap = {
-    impacto:      [0,2,2,0,0,0,1,3], inovacao:     [2,0,0,3,1,1,1,0],
-    estabilidade: [1,0,1,1,2,0,0,1], expressao:    [0,2,0,1,0,3,0,1],
-    conhecimento: [2,2,1,1,0,0,2,0], autonomia:    [0,0,0,1,3,2,0,0]
+    impacto:[0,2,2,0,0,0,1,3], inovacao:[2,0,0,3,1,1,1,0],
+    estabilidade:[1,0,1,1,2,0,0,1], expressao:[0,2,0,1,0,3,0,1],
+    conhecimento:[2,2,1,1,0,0,2,0], autonomia:[0,0,0,1,3,2,0,0]
   };
-  addVec(v, motMap[getAnswer('motivation', answers)] || [], 2.0); // FIX 1: was 1.5
-
+  addVec(v, motMap[getAnswer('motivation',answers)]||[], 2.0);
   const salMap = {
-    "muito-alto": [1,0,1,1,2,0,0,0], "alto": [1,0,1,1,1,0,0,0],
-    "medio":      [0,0,0,0,0,1,0,0], "baixo":[0,1,0,0,0,1,1,1]
+    "muito-alto":[1,0,1,1,2,0,0,0], alto:[1,0,1,1,1,0,0,0],
+    medio:[0,0,0,0,0,1,0,0], baixo:[0,1,0,0,0,1,1,1]
   };
-  addVec(v, salMap[getAnswer('salary', answers)] || [], 0.5);
-
+  addVec(v, salMap[getAnswer('salary',answers)]||[], 0.5);
   return v;
 }
 
 function addVec(target, source, weight) {
-  for (let i = 0; i < 8; i++) target[i] += (source[i] || 0) * weight;
+  for (let i=0;i<8;i++) target[i]+=(source[i]||0)*weight;
 }
 
-/* ============================================================
-   SCORING ENGINE — FIX 2: uses getAnswer(dim) throughout
-============================================================ */
-function cosineSimilarity(a, b) {
-  let dot = 0, magA = 0, magB = 0;
-  for (let i = 0; i < a.length; i++) {
-    dot += a[i]*b[i]; magA += a[i]*a[i]; magB += b[i]*b[i];
-  }
-  if (magA === 0 || magB === 0) return 0;
-  return dot / (Math.sqrt(magA) * Math.sqrt(magB));
+function cosineSimilarity(a,b) {
+  let dot=0,magA=0,magB=0;
+  for(let i=0;i<a.length;i++){dot+=a[i]*b[i];magA+=a[i]*a[i];magB+=b[i]*b[i];}
+  if(magA===0||magB===0) return 0;
+  return dot/(Math.sqrt(magA)*Math.sqrt(magB));
 }
 
 function computeScores(answers) {
-  const userVec  = buildUserVector(answers);
-  const durPref  = parseInt(getAnswer('duration', answers)) || 6; // FIX 2
-  const salPref  = getAnswer('salary', answers);                   // FIX 2
-  const mathPref = getAnswer('math', answers);                     // FIX 2
-  const techPref = getAnswer('tech', answers);                     // FIX 2
-
-  const results = Object.keys(COURSES).map(name => {
-    const c = COURSES[name];
-    const sim = cosineSimilarity(userVec, c.vec);
-    let score = sim * 70;
-
-    const courseDur = parseInt(c.dur);
-    if (courseDur <= durPref) score += 8;
-    else score -= (courseDur - durPref) * 4;
-
-    const mathScore = { alto:10, medio:6, baixo:3, minimo:0 }[mathPref] || 5;
-    const mathDemand = (c.vec[0] + c.vec[3]) / 2;
-    score += Math.max(0, 8 - Math.abs(mathScore - mathDemand));
-
-    const salScore = { "muito-alto":4, "alto":3, "medio":2, "baixo":1 }[salPref] || 2;
-    const courseSalScore = c.salMid >= 12000 ? 4 : c.salMid >= 8000 ? 3 : c.salMid >= 5000 ? 2 : 1;
-    if (salScore === courseSalScore) score += 7;
-    else if (Math.abs(salScore - courseSalScore) === 1) score += 4;
-
-    const techScore = { "muito-alto":10, "alto":7, "moderado":4, "baixo":1 }[techPref] || 4;
-    score += Math.max(0, 7 - Math.abs(techScore - c.vec[3]));
-
+  const userVec=buildUserVector(answers);
+  const durPref=parseInt(getAnswer('duration',answers))||6;
+  const salPref=getAnswer('salary',answers);
+  const mathPref=getAnswer('math',answers);
+  const techPref=getAnswer('tech',answers);
+  const results=Object.keys(COURSES).map(name=>{
+    const c=COURSES[name];
+    const sim=cosineSimilarity(userVec,c.vec);
+    let score=sim*70;
+    const courseDur=parseInt(c.dur);
+    if(courseDur<=durPref) score+=8; else score-=(courseDur-durPref)*4;
+    const mathScore={alto:10,medio:6,baixo:3,minimo:0}[mathPref]||5;
+    const mathDemand=(c.vec[0]+c.vec[3])/2;
+    score+=Math.max(0,8-Math.abs(mathScore-mathDemand));
+    const salScore={"muito-alto":4,alto:3,medio:2,baixo:1}[salPref]||2;
+    const courseSalScore=c.salMid>=12000?4:c.salMid>=8000?3:c.salMid>=5000?2:1;
+    if(salScore===courseSalScore) score+=7;
+    else if(Math.abs(salScore-courseSalScore)===1) score+=4;
+    const techScore={"muito-alto":10,alto:7,moderado:4,baixo:1}[techPref]||4;
+    score+=Math.max(0,7-Math.abs(techScore-c.vec[3]));
     return {
-      name, ...c,
-      score: Math.min(100, Math.max(0, Math.round(score))),
-      breakdown: {
-        perfil:     Math.round(sim * 100),
-        duracao:    courseDur <= durPref ? 100 : Math.max(0, 100 - (courseDur - durPref)*40),
-        matematica: Math.round(Math.max(0, (8 - Math.abs(mathScore-(c.vec[0]+c.vec[3])/2)) / 8) * 100),
-        salario:    salScore === courseSalScore ? 100 : Math.abs(salScore-courseSalScore) === 1 ? 57 : 20,
-        tecnologia: Math.round(Math.max(0, (7 - Math.abs(techScore-c.vec[3])) / 7) * 100)
+      name,...c,
+      score:Math.min(100,Math.max(0,Math.round(score))),
+      breakdown:{
+        perfil:Math.round(sim*100),
+        duracao:courseDur<=durPref?100:Math.max(0,100-(courseDur-durPref)*40),
+        matematica:Math.round(Math.max(0,(8-Math.abs(mathScore-(c.vec[0]+c.vec[3])/2))/8)*100),
+        salario:salScore===courseSalScore?100:Math.abs(salScore-courseSalScore)===1?57:20,
+        tecnologia:Math.round(Math.max(0,(7-Math.abs(techScore-c.vec[3]))/7)*100)
       }
     };
   });
-
-  return results.sort((a, b) => b.score - a.score);
+  return results.sort((a,b)=>b.score-a.score);
 }
 
-/* ============================================================
-   PROFILE SUMMARY
-============================================================ */
-function buildProfileSummary(answers, userVec) {
-  const areaLabels = {
-    saude:"Ciências da Saúde", tecnologia:"Tecnologia", exatas:"Exatas/Engenharias",
-    negocios:"Negócios", artes:"Artes e Comunicação", humanas:"Humanas", ambiental:"Ciências Ambientais"
-  };
-  const talentLabels = {
-    analitico:"analítico", criativo:"criativo", comunicativo:"comunicativo",
-    cientifico:"científico", organizacional:"organizacional", empatico:"empático"
-  };
-  const motLabels = {
-    impacto:"impacto social", inovacao:"inovação tecnológica", estabilidade:"estabilidade financeira",
-    expressao:"expressão criativa", conhecimento:"aprofundamento científico", autonomia:"autonomia profissional"
-  };
-  const mathLabels = { alto:"alta", medio:"média", baixo:"baixa", minimo:"mínima" };
-  const techLabels = { "muito-alto":"muito alto", alto:"alto", moderado:"moderado", baixo:"baixo" };
-  const durPref = getAnswer('duration', answers); // FIX 2
-  const durLabel = durPref==="4" ? "curta (4 anos)" : durPref==="5" ? "padrão (5 anos)" : "longa (6+ anos)";
-
-  const dimNames = ["Exatas","Humanas","Saúde","Tecnologia","Negócios","Artes","Ambiental","Social"];
-  const maxIdx = userVec.indexOf(Math.max(...userVec));
-
-  return `
-    Seu perfil combina interesse em <strong>${areaLabels[getAnswer('area',answers)]||"—"}</strong>,
+function buildProfileSummary(answers,userVec) {
+  const areaLabels={saude:"Ciências da Saúde",tecnologia:"Tecnologia",exatas:"Exatas/Engenharias",negocios:"Negócios",artes:"Artes e Comunicação",humanas:"Humanas",ambiental:"Ciências Ambientais"};
+  const talentLabels={analitico:"analítico",criativo:"criativo",comunicativo:"comunicativo",cientifico:"científico",organizacional:"organizacional",empatico:"empático"};
+  const motLabels={impacto:"impacto social",inovacao:"inovação tecnológica",estabilidade:"estabilidade financeira",expressao:"expressão criativa",conhecimento:"aprofundamento científico",autonomia:"autonomia profissional"};
+  const mathLabels={alto:"alta",medio:"média",baixo:"baixa",minimo:"mínima"};
+  const techLabels={"muito-alto":"muito alto",alto:"alto",moderado:"moderado",baixo:"baixo"};
+  const durPref=getAnswer('duration',answers);
+  const durLabel=durPref==="4"?"curta (4 anos)":durPref==="5"?"padrão (5 anos)":"longa (6+ anos)";
+  const dimNames=["Exatas","Humanas","Saúde","Tecnologia","Negócios","Artes","Ambiental","Social"];
+  const maxIdx=userVec.indexOf(Math.max(...userVec));
+  return `Seu perfil combina interesse em <strong>${areaLabels[getAnswer('area',answers)]||"—"}</strong>,
     talento <strong>${talentLabels[getAnswer('talent',answers)]||"—"}</strong>
     e motivação por <strong>${motLabels[getAnswer('motivation',answers)]||"—"}</strong>.
     Você tem afinidade <strong>${mathLabels[getAnswer('math',answers)]||"—"}</strong> com matemática
     e interesse <strong>${techLabels[getAnswer('tech',answers)]||"—"}</strong> em tecnologia,
     buscando uma graduação de duração <strong>${durLabel}</strong>.
     <br><br>Sua dimensão dominante é <strong>${dimNames[maxIdx]}</strong>.
-    ${buildDimBars(userVec)}
-  `;
+    ${buildDimBars(userVec)}`;
 }
 
 function buildDimBars(vec) {
-  const labels = ["Exatas","Humanas","Saúde","Tecnologia","Negócios","Artes","Ambiental","Social"];
-  const colors = ["#7c6af7","#6af7b2","#f76a6a","#6ab8f7","#f7b26a","#f76ab8","#6af7b2","#b26af7"];
-  const maxVal = Math.max(...vec, 1);
-  let html = '<div class="profile-dims">';
-  labels.forEach((l, i) => {
-    const pct = Math.round((vec[i] / maxVal) * 100);
-    html += `<div class="dim-row"><span class="dim-label">${l}</span><div class="dim-track"><div class="dim-fill" style="width:${pct}%;background:${colors[i]}"></div></div><span class="dim-val">${pct}%</span></div>`;
+  const labels=["Exatas","Humanas","Saúde","Tecnologia","Negócios","Artes","Ambiental","Social"];
+  const colors=["#7c6af7","#6af7b2","#f76a6a","#6ab8f7","#f7b26a","#f76ab8","#6af7b2","#b26af7"];
+  const maxVal=Math.max(...vec,1);
+  let html='<div class="profile-dims">';
+  labels.forEach((l,i)=>{
+    const pct=Math.round((vec[i]/maxVal)*100);
+    html+=`<div class="dim-row"><span class="dim-label">${l}</span><div class="dim-track"><div class="dim-fill" style="width:${pct}%;background:${colors[i]}"></div></div><span class="dim-val">${pct}%</span></div>`;
   });
-  return html + '</div>';
+  return html+'</div>';
 }
 
-/* ============================================================
-   SISU NOTE WITH REGIONAL ADJUSTMENT
-============================================================ */
-function getAdjustedSISU(baseNote, region) {
-  const factor = REGION_FACTORS[region] || 1.0;
-  if (factor === 1.0) return { display: baseNote, adjusted: false };
-  const adjusted = (parseFloat(baseNote) * factor).toFixed(2);
-  return { display: adjusted, adjusted: true, base: baseNote };
+function getAdjustedSISU(baseNote,region) {
+  const factor=REGION_FACTORS[region]||1.0;
+  if(factor===1.0) return {display:baseNote,adjusted:false};
+  const adjusted=(parseFloat(baseNote)*factor).toFixed(2);
+  return {display:adjusted,adjusted:true,base:baseNote};
 }
 
-/* ============================================================
-   FIX 5 — SHARE via URL hash
-   Encodes state.answers as base64 in the URL hash so anyone
-   with the link sees the same results directly.
-============================================================ */
 function getShareURL() {
   try {
-    const encoded = btoa(unescape(encodeURIComponent(state.answers.join('|'))));
-    return window.location.href.split('#')[0] + '#r=' + encoded;
-  } catch(e) { return window.location.href; }
+    const encoded=btoa(unescape(encodeURIComponent(state.answers.join('|'))));
+    return window.location.href.split('#')[0]+'#r='+encoded;
+  } catch(e){return window.location.href;}
 }
 
 function loadFromHash() {
-  const hash = window.location.hash;
-  if (!hash.startsWith('#r=')) return false;
+  const hash=window.location.hash;
+  if(!hash.startsWith('#r=')) return false;
   try {
-    const decoded = decodeURIComponent(escape(atob(hash.slice(3))));
-    const answers = decoded.split('|');
-    if (answers.length !== QUESTIONS.length) return false;
-    state.answers = answers;
-    state.userVec = buildUserVector(answers);
-    state.results = computeScores(answers);
-    showScreen('result');
+    const decoded=decodeURIComponent(escape(atob(hash.slice(3))));
+    const answers=decoded.split('|');
+    if(answers.length!==QUESTIONS.length) return false;
+    state.answers=answers;
+    state.userVec=buildUserVector(answers);
+    state.results=computeScores(answers);
+    switchTab('quiz');
+    showQuizScreen('result');
     renderResults();
     showToast('🔗 Resultados carregados do link compartilhado');
     return true;
-  } catch(e) { return false; }
+  } catch(e){return false;}
 }
 
-/* ============================================================
-   STATE
-============================================================ */
 let state = {
-  screen: "start", q: 0, answers: [], results: [], userVec: [],
-  filter: "all", search: "", showAll: false, favorites: [],
-  region: "sudeste"
+  tab:"home", quizScreen:"start", q:0, answers:[], results:[], userVec:[],
+  filter:"all", search:"", showAll:false, favorites:[],
+  region:"sudeste", explorarFilter:"all", explorarSearch:"", explorarShowAll:false
 };
 
 function loadState() {
   try {
-    const s = JSON.parse(localStorage.getItem("um4_state") || "{}");
-    if (s.answers)   state.answers   = s.answers;
-    if (s.favorites) state.favorites = s.favorites;
-    if (s.region)    state.region    = s.region;
-    if (s.theme === "light") document.body.classList.add("light");
-    if (s.answers && s.answers.length > 0 && s.q !== undefined) {
-      state.q = s.q; state.screen = "question";
-    }
-  } catch(e) {}
+    const s=JSON.parse(localStorage.getItem("um5_state")||"{}");
+    if(s.answers)   state.answers=s.answers;
+    if(s.favorites) state.favorites=s.favorites;
+    if(s.region)    state.region=s.region;
+    if(s.theme==="light") document.body.classList.add("light");
+  } catch(e){}
 }
 
 function saveState() {
   try {
-    localStorage.setItem("um4_state", JSON.stringify({
-      answers: state.answers, q: state.q, favorites: state.favorites,
-      region: state.region, theme: document.body.classList.contains("light") ? "light" : "dark"
+    localStorage.setItem("um5_state",JSON.stringify({
+      answers:state.answers,favorites:state.favorites,
+      region:state.region,theme:document.body.classList.contains("light")?"light":"dark"
     }));
-  } catch(e) {}
+  } catch(e){}
 }
 
-/* ============================================================
-   RENDER
-============================================================ */
-const $ = id => document.getElementById(id);
+const $=id=>document.getElementById(id);
 
-function showScreen(name) {
-  ["start-screen","question-screen","loading-screen","result-screen"].forEach(id => {
-    const el = $(id); if (el) el.classList.add("hidden");
+function switchTab(tab) {
+  state.tab=tab;
+  ["home","quiz","explorar","sobre"].forEach(t=>{
+    const screen=$(t+"-screen");
+    if(screen) screen.classList.toggle("hidden",t!==tab);
   });
-  const map = { start:"start-screen", question:"question-screen", loading:"loading-screen", result:"result-screen" };
-  const target = $(map[name]);
-  if (target) target.classList.remove("hidden");
-  state.screen = name;
+  document.querySelectorAll(".nav-tab").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.tab===tab);
+  });
+  const progressWrap=$("progress-wrap");
+  if(tab==="quiz") {
+    progressWrap.style.display="block";
+    updateProgress();
+  } else {
+    progressWrap.style.display="none";
+  }
+  if(tab==="explorar") renderExplorar();
+}
+
+function showQuizScreen(name) {
+  ["start-screen","question-screen","loading-screen","result-screen"].forEach(id=>{
+    const el=$(id); if(el) el.classList.add("hidden");
+  });
+  const map={start:"start-screen",question:"question-screen",loading:"loading-screen",result:"result-screen"};
+  const target=$(map[name]);
+  if(target) target.classList.remove("hidden");
+  state.quizScreen=name;
+  updateProgress();
 }
 
 function updateProgress() {
-  const total = QUESTIONS.length;
-  if (state.screen === "start") {
-    $("progress-fill").style.width = "0%";
-    $("progress-pct").textContent = "0%";
-    $("progress-label").textContent = "Início";
-  } else if (state.screen === "question") {
-    const pct = Math.round((state.q / total) * 100);
-    $("progress-fill").style.width = pct + "%";
-    $("progress-pct").textContent = pct + "%";
-    $("progress-label").textContent = `Pergunta ${state.q+1} de ${total}`;
-  } else if (state.screen === "result") {
-    $("progress-fill").style.width = "100%";
-    $("progress-pct").textContent = "100%";
-    $("progress-label").textContent = "Concluído ✓";
+  const total=QUESTIONS.length;
+  if(state.quizScreen==="start"||state.quizScreen===undefined) {
+    $("progress-fill").style.width="0%";
+    $("progress-pct").textContent="0%";
+    $("progress-label").textContent="Início";
+  } else if(state.quizScreen==="question") {
+    const pct=Math.round((state.q/total)*100);
+    $("progress-fill").style.width=pct+"%";
+    $("progress-pct").textContent=pct+"%";
+    $("progress-label").textContent=`Pergunta ${state.q+1} de ${total}`;
+  } else if(state.quizScreen==="result") {
+    $("progress-fill").style.width="100%";
+    $("progress-pct").textContent="100%";
+    $("progress-label").textContent="Concluído ✓";
   }
 }
 
-/* FIX 3 — selectedVal is reset to the stored answer on render,
-   so going back and re-reading never carries a stale value. */
-let selectedVal = null;
+let selectedVal=null;
 
 function renderQuestion() {
-  const q = QUESTIONS[state.q];
-  $("question-num").textContent = `Pergunta ${state.q+1} de ${QUESTIONS.length}`;
-  $("question-text").textContent = q.q;
-  const grid = $("options-grid");
-  grid.innerHTML = "";
-  const prev = state.answers[state.q];
-
-  // FIX 3: sync selectedVal with the stored answer for this question
-  selectedVal = prev || null;
-
-  q.opts.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.className = "option-btn" + (prev === opt.v ? " selected" : "");
+  const q=QUESTIONS[state.q];
+  $("question-num").textContent=`Pergunta ${state.q+1} de ${QUESTIONS.length}`;
+  $("question-text").textContent=q.q;
+  const grid=$("options-grid");
+  grid.innerHTML="";
+  const prev=state.answers[state.q];
+  selectedVal=prev||null;
+  q.opts.forEach(opt=>{
+    const btn=document.createElement("button");
+    btn.className="option-btn"+(prev===opt.v?" selected":"");
     btn.setAttribute("role","option");
-    btn.setAttribute("aria-selected", String(prev === opt.v));
-    btn.innerHTML = `<span class="option-emoji">${opt.e}</span><span class="option-text">${opt.t}</span><span class="option-check">✓</span>`;
-    btn.addEventListener("click", () => selectOption(opt.v, btn));
-    btn.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){e.preventDefault();selectOption(opt.v,btn);}});
+    btn.setAttribute("aria-selected",String(prev===opt.v));
+    btn.innerHTML=`<span class="option-emoji">${opt.e}</span><span class="option-text">${opt.t}</span><span class="option-check">✓</span>`;
+    btn.addEventListener("click",()=>selectOption(opt.v,btn));
+    btn.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectOption(opt.v,btn);}});
     grid.appendChild(btn);
   });
-  $("next-btn").disabled = !prev;
-  $("back-btn").style.display = state.q === 0 ? "none" : "inline-flex";
-  grid.style.opacity = "0"; grid.style.transform = "translateY(10px)";
-  requestAnimationFrame(() => {
-    grid.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-    grid.style.opacity = "1"; grid.style.transform = "translateY(0)";
+  $("next-btn").disabled=!prev;
+  $("back-btn").style.display=state.q===0?"none":"inline-flex";
+  grid.style.opacity="0";grid.style.transform="translateY(10px)";
+  requestAnimationFrame(()=>{
+    grid.style.transition="opacity 0.3s ease, transform 0.3s ease";
+    grid.style.opacity="1";grid.style.transform="translateY(0)";
   });
 }
 
-function selectOption(val, btn) {
-  document.querySelectorAll(".option-btn").forEach(b => {
-    b.classList.remove("selected"); b.setAttribute("aria-selected","false");
-  });
-  btn.classList.add("selected"); btn.setAttribute("aria-selected","true");
-  selectedVal = val;
-  $("next-btn").disabled = false;
+function selectOption(val,btn) {
+  document.querySelectorAll(".option-btn").forEach(b=>{b.classList.remove("selected");b.setAttribute("aria-selected","false");});
+  btn.classList.add("selected");btn.setAttribute("aria-selected","true");
+  selectedVal=val;
+  $("next-btn").disabled=false;
 }
 
 function renderResults() {
-  $("profile-summary").innerHTML = buildProfileSummary(state.answers, state.userVec);
-  $("region-select").value = state.region;
+  $("profile-summary").innerHTML=buildProfileSummary(state.answers,state.userVec);
+  $("region-select-result").value=state.region;
   updateProgress();
   renderCourseList();
   renderFavorites();
 }
 
 function getFilteredCourses() {
-  let list = [...state.results];
-  if (state.search) {
-    const q = state.search.toLowerCase();
-    list = list.filter(c =>
-      c.name.toLowerCase().includes(q) ||
-      c.desc.toLowerCase().includes(q) ||
-      c.tags.some(t => t.toLowerCase().includes(q)) ||
-      c.carreiras.toLowerCase().includes(q)
-    );
+  let list=[...state.results];
+  if(state.search){
+    const q=state.search.toLowerCase();
+    list=list.filter(c=>c.name.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.tags.some(t=>t.toLowerCase().includes(q))||c.carreiras.toLowerCase().includes(q));
   }
-  if (state.filter === "high")   list = list.filter(c => c.score >= 65);
-  if (state.filter === "medium") list = list.filter(c => c.score >= 40 && c.score < 65);
-  if (state.filter === "4anos")  list = list.filter(c => c.dur === "4");
-  if (state.filter === "5anos")  list = list.filter(c => c.dur === "5");
-  if (state.filter === "salary") list = [...list].sort((a,b) => b.salMid - a.salMid);
-  if (state.filter === "emp")    list = [...list].sort((a,b) => b.empScore - a.empScore);
+  if(state.filter==="high")   list=list.filter(c=>c.score>=65);
+  if(state.filter==="medium") list=list.filter(c=>c.score>=40&&c.score<65);
+  if(state.filter==="4anos")  list=list.filter(c=>c.dur==="4");
+  if(state.filter==="5anos")  list=list.filter(c=>c.dur==="5");
+  if(state.filter==="salary") list=[...list].sort((a,b)=>b.salMid-a.salMid);
+  if(state.filter==="emp")    list=[...list].sort((a,b)=>b.empScore-a.empScore);
   return list;
 }
 
 function renderCourseList() {
-  const filtered = getFilteredCourses();
-  const limit = state.showAll ? filtered.length : 8;
-  const shown = filtered.slice(0, limit);
-  $("results-count").innerHTML = `<strong>${filtered.length}</strong> cursos encontrados`;
-  const container = $("course-list");
-  container.innerHTML = "";
-  if (shown.length === 0) {
-    container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-dim);">Nenhum curso encontrado.</div>`;
-  }
-  shown.forEach((course, idx) => container.appendChild(createCourseCard(course, idx, false)));
-  const wrap = $("show-more-wrap");
-  if (filtered.length > 8 && !state.showAll) {
+  const filtered=getFilteredCourses();
+  const limit=state.showAll?filtered.length:8;
+  const shown=filtered.slice(0,limit);
+  $("results-count").innerHTML=`<strong>${filtered.length}</strong> cursos encontrados`;
+  const container=$("course-list");
+  container.innerHTML="";
+  if(shown.length===0){container.innerHTML=`<div style="text-align:center;padding:40px;color:var(--text-dim);">Nenhum curso encontrado.</div>`;}
+  shown.forEach((course,idx)=>container.appendChild(createCourseCard(course,idx,false)));
+  const wrap=$("show-more-wrap");
+  if(filtered.length>8&&!state.showAll){
     wrap.classList.remove("hidden");
-    $("show-more-btn").textContent = `Ver todos os ${filtered.length} cursos ↓`;
-  } else {
-    wrap.classList.add("hidden");
-  }
+    $("show-more-btn").textContent=`Ver todos os ${filtered.length} cursos ↓`;
+  } else {wrap.classList.add("hidden");}
 }
 
-function createCourseCard(course, idx, isFavView) {
-  const score = course.score;
-  const compatClass = score >= 65 ? "high" : score >= 40 ? "medium" : "low";
-  const compatLabel = score >= 65 ? "Alta" : score >= 40 ? "Média" : "Baixa";
-  const isTop = idx < 3 && !isFavView;
-  const isFav = state.favorites.includes(course.name);
-  const empClass = course.emp.toLowerCase().replace(/\s/g,"").replace(/á/g,"a").replace(/é/g,"e");
+function getExplorarFiltered() {
+  let list=Object.keys(COURSES).map(name=>({name,...COURSES[name]}));
+  if(state.explorarSearch){
+    const q=state.explorarSearch.toLowerCase();
+    list=list.filter(c=>c.name.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.tags.some(t=>t.toLowerCase().includes(q))||c.carreiras.toLowerCase().includes(q));
+  }
+  const areaVecIdx={saude:2,exatas:0,tecnologia:3,humanas:1,negocios:4,artes:5,ambiental:6};
+  if(state.explorarFilter!=="all"&&state.explorarFilter!=="salary"){
+    const idx=areaVecIdx[state.explorarFilter];
+    if(idx!==undefined) list=list.filter(c=>c.vec[idx]>=5);
+  }
+  if(state.explorarFilter==="salary") list=[...list].sort((a,b)=>b.salMid-a.salMid);
+  else list=list.sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
+  return list;
+}
 
-  // SISU with regional adjustment + FIX 4 estimated badge
-  const sisuData = getAdjustedSISU(course.notaSISU, state.region);
-  const regionLabel = REGION_LABELS[state.region] || "";
-  const estBadge = course.sisuEstimated
-    ? `<span class="sisu-est-badge" title="Nota estimada — programa sem dado individual publicado pelo MEC">*est.</span>`
-    : "";
-  const sisuHTML = `
-    <div class="sisu-source">
-      ${sisuData.display} pts ${estBadge}
-      ${sisuData.adjusted ? `<span class="sisu-adjusted">(${regionLabel})</span>` : ""}
-      <span class="sisu-info" style="position:relative">i
-        <span class="sisu-tooltip">
-          ${sisuData.adjusted
-            ? `Nota estimada para o ${regionLabel} com base no percentil regional do SISU 2024. Nota nacional mais competitiva: ${sisuData.base} pts.`
-            : `Nota de corte mais competitiva do SISU 2024, 1ª chamada, ampla concorrência.`}
-          ${course.sisuEstimated ? ' ⚠️ Este programa não possui dado individual publicado pelo MEC — valor estimado por comparação.' : ''}
-          Fonte: MEC/SISU 2024. Valores podem variar por universidade.
-        </span>
+function renderExplorar() {
+  const filtered=getExplorarFiltered();
+  const limit=state.explorarShowAll?filtered.length:12;
+  const shown=filtered.slice(0,limit);
+  $("explorar-count").innerHTML=`<strong>${filtered.length}</strong> cursos`;
+  const container=$("explorar-list");
+  container.innerHTML="";
+  if(shown.length===0){container.innerHTML=`<div style="text-align:center;padding:40px;color:var(--text-dim);">Nenhum curso encontrado.</div>`;}
+  shown.forEach((course,idx)=>container.appendChild(createCourseCard(course,idx,false,true)));
+  const wrap=$("explorar-show-more-wrap");
+  if(filtered.length>12&&!state.explorarShowAll){
+    wrap.classList.remove("hidden");
+    $("explorar-show-more-btn").textContent=`Ver todos os ${filtered.length} cursos ↓`;
+  } else {wrap.classList.add("hidden");}
+}
+
+function createCourseCard(course,idx,isFavView,isExplorar) {
+  const score=course.score||0;
+  const compatClass=score>=65?"high":score>=40?"medium":"low";
+  const compatLabel=score>=65?"Alta":score>=40?"Média":"Baixa";
+  const isTop=idx<3&&!isFavView&&!isExplorar&&score>0;
+  const isFav=state.favorites.includes(course.name);
+  const empClass=course.emp.toLowerCase().replace(/\s/g,"").replace(/á/g,"a").replace(/é/g,"e");
+  const sisuData=getAdjustedSISU(course.notaSISU,state.region);
+  const regionLabel=REGION_LABELS[state.region]||"";
+  const estBadge=course.sisuEstimated?`<span class="sisu-est-badge" title="Nota estimada">*est.</span>`:"";
+  const sisuHTML=`<div class="sisu-source">
+    ${sisuData.display} pts ${estBadge}
+    ${sisuData.adjusted?`<span class="sisu-adjusted">(${regionLabel})</span>`:""}
+    <span class="sisu-info" style="position:relative">i
+      <span class="sisu-tooltip">
+        ${sisuData.adjusted?`Nota estimada para o ${regionLabel} com base no percentil regional do SISU 2024. Nacional: ${sisuData.base} pts.`:`Nota de corte SISU 2024, 1ª chamada, ampla concorrência.`}
+        ${course.sisuEstimated?' ⚠️ Valor estimado por comparação.':""}
+        Fonte: MEC/SISU 2024.
       </span>
+    </span>
+  </div>`;
+  const bd=course.breakdown||{};
+  const scoreDisplay=score>0?`<span class="compat-badge ${compatClass}">${compatLabel} compat. (${score}/100)</span>`:`<span class="compat-badge medium">Ver detalhes</span>`;
+  let factorsHTML="";
+  if(score>0){
+    const factors=[
+      {icon:"🎯",label:"Alinhamento de perfil",val:bd.perfil||0},
+      {icon:"🧮",label:"Compatibilidade matemática",val:bd.matematica||0},
+      {icon:"💻",label:"Interesse em tecnologia",val:bd.tecnologia||0},
+      {icon:"📅",label:"Duração aceita",val:bd.duracao||0},
+      {icon:"💰",label:"Expectativa salarial",val:bd.salario||0}
+    ];
+    factorsHTML=`<div class="match-breakdown">
+      <div class="match-breakdown-title">🎯 Por que este curso foi indicado para você?</div>
+      <div class="match-factors">${factors.map(f=>`
+        <div class="match-factor"><span class="mf-icon">${f.icon}</span><span class="mf-label">${f.label}</span>
+        <div class="mf-bar"><div class="mf-bar-fill" style="width:0%;background:var(--accent)" data-target="${f.val}%"></div></div>
+        <span class="mf-val">${f.val}%</span></div>`).join("")}
+      </div>
     </div>`;
-
-  const bd = course.breakdown || {};
-  const factors = [
-    { icon:"🎯", label:"Alinhamento de perfil", val: bd.perfil || 0 },
-    { icon:"🧮", label:"Compatibilidade matemática", val: bd.matematica || 0 },
-    { icon:"💻", label:"Interesse em tecnologia", val: bd.tecnologia || 0 },
-    { icon:"📅", label:"Duração aceita", val: bd.duracao || 0 },
-    { icon:"💰", label:"Expectativa salarial", val: bd.salario || 0 }
-  ];
-  const factorHTML = factors.map(f =>
-    `<div class="match-factor"><span class="mf-icon">${f.icon}</span><span class="mf-label">${f.label}</span><div class="mf-bar"><div class="mf-bar-fill" style="width:0%;background:var(--accent)" data-target="${f.val}%"></div></div><span class="mf-val">${f.val}%</span></div>`
-  ).join("");
-
-  const card = document.createElement("div");
-  card.className = "course-card";
-  card.setAttribute("data-name", course.name);
-  if (idx !== undefined) card.style.animationDelay = Math.min(idx * 0.04, 0.4) + "s";
-
-  card.innerHTML = `
+  }
+  const card=document.createElement("div");
+  card.className="course-card";
+  card.setAttribute("data-name",course.name);
+  if(idx!==undefined) card.style.animationDelay=Math.min(idx*0.04,0.4)+"s";
+  const rankDisplay=isExplorar?"#"+(idx+1):score>0?String(idx+1).padStart(2,"0"):"★";
+  card.innerHTML=`
     <div class="course-card-header">
-      <div class="course-rank ${isTop?"top":""}">${String(idx !== undefined ? idx+1 : "★").padStart(2,"0")}</div>
+      <div class="course-rank ${isTop?"top":""}">${rankDisplay}</div>
       <div class="course-main">
         <div class="course-name">${course.name}</div>
         <div class="course-meta-row">
-          <span class="compat-badge ${compatClass}">${compatLabel} compat. (${score}/100)</span>
+          ${scoreDisplay}
           <span class="course-area-tag">${course.dur} anos</span>
         </div>
       </div>
@@ -1949,14 +1794,11 @@ function createCourseCard(course, idx, isFavView) {
     </div>
     <div class="course-body">
       <div class="course-body-inner">
-        <div class="match-breakdown">
-          <div class="match-breakdown-title">🎯 Por que este curso foi indicado para você?</div>
-          <div class="match-factors">${factorHTML}</div>
-        </div>
+        ${factorsHTML}
         <p class="desc-text">${course.desc}</p>
         <div class="info-grid">
           <div class="info-item">
-            <div class="info-label">Salário Médio <span title="Fonte: CAGED 2023 / CBO-MTE. Mediana nacional." style="cursor:help;opacity:0.6">ℹ</span></div>
+            <div class="info-label">Salário Médio <span title="Fonte: CAGED 2023 / CBO-MTE." style="cursor:help;opacity:0.6">ℹ</span></div>
             <div class="info-value">${course.sal}</div>
           </div>
           <div class="info-item">
@@ -1964,7 +1806,7 @@ function createCourseCard(course, idx, isFavView) {
             <div class="info-value"><span class="emp-badge ${empClass}">${course.emp}</span></div>
           </div>
           <div class="info-item">
-            <div class="info-label">Demanda de Mercado <span title="Fonte: MTE/CAGED 2023." style="cursor:help;opacity:0.6">ℹ</span></div>
+            <div class="info-label">Demanda de Mercado</div>
             <div class="info-value"><span class="dem-${course.dem.toLowerCase().split(' ')[0].replace(/á/g,'a').replace(/é/g,'e')}">${course.dem}</span></div>
           </div>
           <div class="info-item">
@@ -1976,205 +1818,203 @@ function createCourseCard(course, idx, isFavView) {
             <div class="info-value" style="font-weight:400;font-size:0.85rem;color:var(--text-muted)">${course.carreiras}</div>
           </div>
         </div>
-        <div class="tags-row">${course.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+        <div class="tags-row">${course.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
         <div class="data-source-footer">
           📊 Dados: <span>SISU 2024 (MEC)</span> · <span>CAGED 2023 (MTE)</span> · <span>CBO/MTE</span>.
-          ${course.sisuEstimated ? '<strong>*Nota de corte estimada</strong> (sem dado MEC individual). ' : ''}
-          ${sisuData.adjusted ? `Nota ajustada para o ${regionLabel} com base no percentil regional.` : `Nota do campus mais concorrido a nível nacional.`}
-          Salários são medianas nacionais.
+          ${course.sisuEstimated?'<strong>*Nota estimada</strong>. ':'' }
+          ${sisuData.adjusted?`Nota ajustada para o ${regionLabel}.`:`Campus mais concorrido nacional.`}
         </div>
       </div>
     </div>`;
-
-  const expandBtn = card.querySelector(".expand-btn");
-  const body = card.querySelector(".course-body");
-  const mainBar = card.querySelector(".score-bar-fill");
-  let expanded = false;
-
-  function toggleExpand() {
-    expanded = !expanded;
-    body.classList.toggle("open", expanded);
-    expandBtn.classList.toggle("open", expanded);
-    if (expanded) {
-      setTimeout(() => {
-        mainBar.style.width = mainBar.dataset.target;
-        card.querySelectorAll(".mf-bar-fill").forEach(b => { b.style.width = b.dataset.target; });
-      }, 60);
+  const expandBtn=card.querySelector(".expand-btn");
+  const body=card.querySelector(".course-body");
+  const mainBar=card.querySelector(".score-bar-fill");
+  let expanded=false;
+  function toggleExpand(){
+    expanded=!expanded;
+    body.classList.toggle("open",expanded);
+    expandBtn.classList.toggle("open",expanded);
+    if(expanded){
+      setTimeout(()=>{
+        mainBar.style.width=mainBar.dataset.target;
+        card.querySelectorAll(".mf-bar-fill").forEach(b=>{b.style.width=b.dataset.target;});
+      },60);
     } else {
-      mainBar.style.width = "0%";
-      card.querySelectorAll(".mf-bar-fill").forEach(b => { b.style.width = "0%"; });
+      mainBar.style.width="0%";
+      card.querySelectorAll(".mf-bar-fill").forEach(b=>{b.style.width="0%";});
     }
   }
-
-  expandBtn.addEventListener("click", toggleExpand);
-  card.querySelector(".course-card-header").addEventListener("click", e => {
-    if (e.target.closest(".fav-btn")) return;
+  expandBtn.addEventListener("click",toggleExpand);
+  card.querySelector(".course-card-header").addEventListener("click",e=>{
+    if(e.target.closest(".fav-btn")) return;
     toggleExpand();
   });
-  card.querySelector(".fav-btn").addEventListener("click", e => {
-    e.stopPropagation(); toggleFavorite(course.name);
+  card.querySelector(".fav-btn").addEventListener("click",e=>{
+    e.stopPropagation();toggleFavorite(course.name);
   });
-
   return card;
 }
 
 function renderFavorites() {
-  const sec = $("favorites-section");
-  const list = $("fav-list");
-  if (state.favorites.length === 0) { sec.classList.add("hidden"); return; }
+  const sec=$("favorites-section");
+  const list=$("fav-list");
+  if(state.favorites.length===0){sec.classList.add("hidden");return;}
   sec.classList.remove("hidden");
-  $("fav-count").textContent = state.favorites.length;
-  list.innerHTML = "";
-  state.favorites.forEach((name, idx) => {
-    const c = state.results.find(x => x.name === name);
-    if (c) list.appendChild(createCourseCard(c, idx, true));
+  $("fav-count").textContent=state.favorites.length;
+  list.innerHTML="";
+  state.favorites.forEach((name,idx)=>{
+    const c=state.results.find(x=>x.name===name)||{...COURSES[name],name,score:0};
+    if(c) list.appendChild(createCourseCard(c,idx,true));
   });
 }
 
 function toggleFavorite(name) {
-  const idx = state.favorites.indexOf(name);
-  if (idx === -1) { state.favorites.push(name); showToast("❤️ Adicionado aos favoritos"); }
-  else { state.favorites.splice(idx, 1); showToast("🤍 Removido dos favoritos"); }
-  saveState(); renderCourseList(); renderFavorites();
+  const idx=state.favorites.indexOf(name);
+  if(idx===-1){state.favorites.push(name);showToast("❤️ Adicionado aos favoritos");}
+  else{state.favorites.splice(idx,1);showToast("🤍 Removido dos favoritos");}
+  saveState();
+  if(state.tab==="quiz") {renderCourseList();renderFavorites();}
+  if(state.tab==="explorar") renderExplorar();
 }
 
 function runLoadingAnimation(callback) {
-  let current = 0;
-  function next() {
-    if (current > 0) {
-      const prev = $(`step-${current-1}`);
-      if (prev) { prev.classList.remove("active"); prev.classList.add("done"); }
-    }
-    const s = $(`step-${current}`);
-    if (s) s.classList.add("active");
+  let current=0;
+  function next(){
+    if(current>0){const prev=$(`step-${current-1}`);if(prev){prev.classList.remove("active");prev.classList.add("done");}}
+    const s=$(`step-${current}`);if(s) s.classList.add("active");
     current++;
-    if (current <= 4) setTimeout(next, 450);
-    else setTimeout(callback, 300);
+    if(current<=4) setTimeout(next,450); else setTimeout(callback,300);
   }
-  [0,1,2,3].forEach(i => { const el = $(`step-${i}`); if(el){ el.classList.remove("active","done"); }});
-  setTimeout(next, 100);
+  [0,1,2,3].forEach(i=>{const el=$(`step-${i}`);if(el){el.classList.remove("active","done");}});
+  setTimeout(next,100);
 }
 
 let toastTimer;
-function showToast(msg) {
-  const wrap = $("toast-wrap");
-  $("toast-msg").textContent = msg;
+function showToast(msg){
+  const wrap=$("toast-wrap");
+  $("toast-msg").textContent=msg;
   wrap.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => wrap.classList.remove("show"), 2200);
+  toastTimer=setTimeout(()=>wrap.classList.remove("show"),2200);
 }
 
-function startQuiz() {
-  state.screen = "question";
-  if (state.answers.length === 0) state.q = 0;
-  showScreen("question"); renderQuestion(); updateProgress();
-}
+/* ── EVENTS ── */
+$("logo-btn").addEventListener("click",()=>switchTab("home"));
+$("home-quiz-btn").addEventListener("click",()=>switchTab("quiz"));
+$("home-explorar-btn").addEventListener("click",()=>switchTab("explorar"));
 
-function goNext() {
-  const val = selectedVal || state.answers[state.q];
-  if (!val) return;
-  state.answers[state.q] = val; selectedVal = null; saveState();
-  if (state.q < QUESTIONS.length - 1) {
-    state.q++;
-    showScreen("question"); renderQuestion(); updateProgress();
+document.querySelectorAll(".nav-tab").forEach(btn=>{
+  btn.addEventListener("click",()=>switchTab(btn.dataset.tab));
+});
+
+$("start-btn").addEventListener("click",()=>{
+  state.quizScreen="question";
+  if(state.answers.length===0) state.q=0;
+  showQuizScreen("question");renderQuestion();
+});
+
+$("next-btn").addEventListener("click",()=>{
+  const val=selectedVal||state.answers[state.q];
+  if(!val) return;
+  state.answers[state.q]=val;selectedVal=null;saveState();
+  if(state.q<QUESTIONS.length-1){
+    state.q++;showQuizScreen("question");renderQuestion();
   } else {
-    showScreen("loading");
-    runLoadingAnimation(() => {
-      state.userVec = buildUserVector(state.answers);
-      state.results = computeScores(state.answers);
-      showScreen("result"); renderResults();
+    showQuizScreen("loading");
+    runLoadingAnimation(()=>{
+      state.userVec=buildUserVector(state.answers);
+      state.results=computeScores(state.answers);
+      showQuizScreen("result");renderResults();
     });
   }
-}
+});
 
-function goBack() {
-  if (state.q === 0) return;
-  selectedVal = null; state.q--;
-  showScreen("question"); renderQuestion(); updateProgress();
-}
+$("back-btn").addEventListener("click",()=>{
+  if(state.q===0) return;
+  selectedVal=null;state.q--;
+  showQuizScreen("question");renderQuestion();
+});
 
-function restartQuiz() {
-  state.q = 0; state.answers = []; state.results = []; state.userVec = [];
-  state.filter = "all"; state.search = ""; state.showAll = false; selectedVal = null;
-  document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
-  document.querySelector(".filter-chip[data-filter='all']").classList.add("active");
-  $("search-input").value = "";
-  [0,1,2,3].forEach(i => { const el = $(`step-${i}`); if(el){ el.classList.remove("active","done"); }});
-  // Clean share hash when restarting
-  if (window.location.hash.startsWith('#r=')) {
-    history.replaceState(null, '', window.location.pathname);
-  }
-  saveState(); showScreen("start"); updateProgress();
-}
+$("restart-btn").addEventListener("click",()=>{
+  state.q=0;state.answers=[];state.results=[];state.userVec=[];
+  state.filter="all";state.search="";state.showAll=false;selectedVal=null;
+  document.querySelectorAll("#result-screen .filter-chip").forEach(c=>c.classList.remove("active"));
+  const allChip=document.querySelector("#result-screen .filter-chip[data-filter='all']");
+  if(allChip) allChip.classList.add("active");
+  $("search-input-result").value="";
+  [0,1,2,3].forEach(i=>{const el=$(`step-${i}`);if(el){el.classList.remove("active","done");}});
+  if(window.location.hash.startsWith('#r=')) history.replaceState(null,'',window.location.pathname);
+  saveState();showQuizScreen("start");
+});
 
-/* Events */
-$("start-btn").addEventListener("click", startQuiz);
-$("next-btn").addEventListener("click", goNext);
-$("back-btn").addEventListener("click", goBack);
-$("restart-btn").addEventListener("click", restartQuiz);
-
-$("theme-btn").addEventListener("click", () => {
+$("theme-btn").addEventListener("click",()=>{
   document.body.classList.toggle("light");
-  $("theme-btn").textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
+  $("theme-btn").textContent=document.body.classList.contains("light")?"🌙":"☀️";
   saveState();
 });
 
-$("search-input").addEventListener("input", e => {
-  state.search = e.target.value; state.showAll = false; renderCourseList();
+$("search-input-result").addEventListener("input",e=>{
+  state.search=e.target.value;state.showAll=false;renderCourseList();
 });
 
-document.querySelectorAll(".filter-chip").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".filter-chip").forEach(b => b.classList.remove("active"));
+document.querySelectorAll("#result-screen .filter-chip").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll("#result-screen .filter-chip").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
-    state.filter = btn.dataset.filter; state.showAll = false; renderCourseList();
+    state.filter=btn.dataset.filter;state.showAll=false;renderCourseList();
   });
 });
 
-$("show-more-btn").addEventListener("click", () => { state.showAll = true; renderCourseList(); });
+$("show-more-btn").addEventListener("click",()=>{state.showAll=true;renderCourseList();});
 
-$("clear-fav-btn").addEventListener("click", () => {
-  if (confirm("Limpar todos os favoritos?")) {
-    state.favorites = []; saveState(); renderFavorites(); renderCourseList();
-    showToast("✓ Favoritos limpos");
+$("clear-fav-btn").addEventListener("click",()=>{
+  if(confirm("Limpar todos os favoritos?")){
+    state.favorites=[];saveState();renderFavorites();renderCourseList();showToast("✓ Favoritos limpos");
   }
 });
 
-$("region-select").addEventListener("change", e => {
-  state.region = e.target.value; saveState();
-  if (state.screen === "result") renderCourseList();
+$("region-select-result").addEventListener("change",e=>{
+  state.region=e.target.value;saveState();
+  if(state.tab==="quiz"&&state.quizScreen==="result") renderCourseList();
   showToast(`📍 Região: ${REGION_LABELS[state.region]}`);
 });
 
-// FIX 5 — Share button
-$("share-btn").addEventListener("click", () => {
-  const url = getShareURL();
-  navigator.clipboard.writeText(url).then(() => {
-    showToast("🔗 Link copiado! Compartilhe com quem quiser.");
-  }).catch(() => {
-    // Fallback: show the URL in a prompt so the user can copy manually
-    prompt("Copie o link abaixo:", url);
+$("region-select-explorar").addEventListener("change",e=>{
+  state.region=e.target.value;saveState();
+  renderExplorar();
+  showToast(`📍 Região: ${REGION_LABELS[state.region]}`);
+});
+
+$("search-explorar").addEventListener("input",e=>{
+  state.explorarSearch=e.target.value;state.explorarShowAll=false;renderExplorar();
+});
+
+document.querySelectorAll(".filter-chip-exp").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-chip-exp").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    state.explorarFilter=btn.dataset.filter;state.explorarShowAll=false;renderExplorar();
   });
 });
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Enter" && state.screen === "question" && !$("next-btn").disabled) goNext();
+$("explorar-show-more-btn").addEventListener("click",()=>{state.explorarShowAll=true;renderExplorar();});
+
+$("share-btn").addEventListener("click",()=>{
+  const url=getShareURL();
+  navigator.clipboard.writeText(url).then(()=>{
+    showToast("🔗 Link copiado! Compartilhe com quem quiser.");
+  }).catch(()=>{prompt("Copie o link abaixo:",url);});
 });
 
-/* Init */
-loadState();
-$("theme-btn").textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
+document.addEventListener("keydown",e=>{
+  if(e.key==="Enter"&&state.tab==="quiz"&&state.quizScreen==="question"&&!$("next-btn").disabled) $("next-btn").click();
+});
 
-// FIX 5: Try to restore from shared URL hash first
-if (!loadFromHash()) {
-  if (state.screen === "question" && state.answers.length > 0) {
-    showScreen("question"); renderQuestion();
-    showToast("✓ Continuando de onde parou");
-  } else {
-    showScreen("start");
-  }
-}
-updateProgress();
+/* ── INIT ── */
+loadState();
+$("theme-btn").textContent=document.body.classList.contains("light")?"🌙":"☀️";
+if(!loadFromHash()) switchTab("home");
+
 </script>
 </body>
 </html>
