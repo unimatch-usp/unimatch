@@ -1,7 +1,6 @@
 # UniMatch 🎓
 
-Plataforma gratuita de orientação vocacional para estudantes de escolas públicas,
-desenvolvida como projeto de extensão do IME-USP.
+Plataforma gratuita de orientação vocacional para estudantes de escolas públicas.
 
 ## O que é
 
