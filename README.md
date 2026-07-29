@@ -1,4 +1,4 @@
-# UniMatch 🎓
+# UniMatch 
 
 Plataforma gratuita de orientação vocacional para estudantes de escolas públicas.
 
@@ -22,7 +22,7 @@ de forma gratuita, acessível e baseada em dados.
 
 ## Status
 
-🚧 Em desenvolvimento ativo. Protótipo funcional disponível.
+Em desenvolvimento ativo. Protótipo funcional disponível.
 
 ## Equipe
 
