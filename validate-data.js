@@ -64,7 +64,7 @@ expectedRegions.forEach((r) => {
 });
 
 // ── Checagens de COURSES ──
-const requiredFields = ["vec", "desc", "carreiras", "fuvest", "notaSISU", "sal", "salMid", "emp", "empScore", "dem", "dur", "tags"];
+const requiredFields = ["vec", "area", "desc", "carreiras", "fuvest", "notaSISU", "sal", "salMid", "emp", "empScore", "dem", "dur", "tags"];
 const names = Object.keys(COURSES || {});
 
 if (names.length === 0) {
@@ -83,8 +83,8 @@ names.forEach((name) => {
   });
 
   if (Array.isArray(c.vec)) {
-    if (c.vec.length !== 8) {
-      fail(`"${name}": vec deveria ter 8 posições, tem ${c.vec.length}.`);
+    if (c.vec.length !== 6) {
+      fail(`"${name}": vec deveria ter 6 posições (RIASEC: R,I,A,S,E,C), tem ${c.vec.length}.`);
     }
     if (c.vec.some((n) => typeof n !== "number" || Number.isNaN(n))) {
       fail(`"${name}": vec tem valor não-numérico.`);
@@ -127,6 +127,11 @@ names.forEach((name) => {
 
   if (!Array.isArray(c.tags) || c.tags.length === 0) {
     fail(`"${name}": tags está vazio.`);
+  }
+
+  const validAreas = ["saude","exatas","tecnologia","humanas","negocios","artes","ambiental"];
+  if (!validAreas.includes(c.area)) {
+    fail(`"${name}": area "${c.area}" não é uma das 7 categorias válidas.`);
   }
 
   const dur = parseInt(c.dur, 10);

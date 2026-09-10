@@ -758,63 +758,25 @@ function getAnswer(dim, answers) {
 }
 
 function buildUserVector(answers) {
-  const v = [0,0,0,0,0,0,0,0];
-  const areaMap = {
-    saude:[0,0,3,0,0,0,0,2], tecnologia:[2,0,0,3,0,0,0,0],
-    exatas:[3,0,0,1,0,0,1,0], negocios:[1,1,0,1,3,0,0,1],
-    artes:[0,1,0,0,0,3,0,1], humanas:[0,3,0,0,0,1,0,2],
-    ambiental:[1,1,0,0,0,0,3,0]
-  };
-  addVec(v, areaMap[getAnswer('area',answers)]||[], 2.5);
-  const talentMap = {
-    analitico:[3,0,0,2,1,0,1,0], criativo:[0,1,0,1,0,3,0,1],
-    comunicativo:[0,2,0,0,1,2,0,3], cientifico:[2,1,2,1,0,0,2,0],
-    organizacional:[1,1,0,1,3,0,0,2], empatico:[0,2,3,0,0,0,1,3]
-  };
-  addVec(v, talentMap[getAnswer('talent',answers)]||[], 2.0);
-  const problemMap = {
-    tecnico:[3,0,0,3,0,0,0,0], humano:[0,2,3,0,0,0,0,3],
-    mercado:[1,0,0,1,3,1,0,1], social:[0,3,0,0,0,1,1,3],
-    criativo:[0,1,0,1,1,3,0,1], ambiental:[1,1,0,0,0,0,3,1]
-  };
-  addVec(v, problemMap[getAnswer('problem',answers)]||[], 2.0);
-  const mathMap = {
-    alto:[3,0,0,2,1,0,1,0], medio:[1,1,0,1,1,1,1,0],
-    baixo:[0,2,1,0,1,2,0,1], minimo:[0,3,1,0,0,3,0,1]
-  };
-  addVec(v, mathMap[getAnswer('math',answers)]||[], 1.5);
-  const techMap = {
-    "muito-alto":[2,0,0,3,1,1,0,0], alto:[1,0,0,2,1,1,0,0],
-    moderado:[1,0,0,1,1,1,0,0], baixo:[0,1,0,0,0,1,1,1]
-  };
-  addVec(v, techMap[getAnswer('tech',answers)]||[], 1.5);
-  const wsMap = {
-    sozinho:[2,1,0,2,0,1,1,0], equipe:[1,1,1,1,2,1,1,2],
-    publico:[0,2,2,0,1,1,0,3], liderando:[1,1,1,1,3,1,0,2]
-  };
-  addVec(v, wsMap[getAnswer('work_style',answers)]||[], 1.0);
-  const envMap = {
-    lab:[2,0,2,1,0,0,1,0], escritorio:[0,1,0,1,3,1,0,1],
-    campo:[1,1,0,0,0,0,3,1], remoto:[1,0,0,2,1,2,0,0],
-    educacao:[0,2,1,0,0,1,1,3], estudio:[0,1,0,1,1,3,0,1]
-  };
-  addVec(v, envMap[getAnswer('environment',answers)]||[], 1.0);
-  const motMap = {
-    impacto:[0,2,2,0,0,0,1,3], inovacao:[2,0,0,3,1,1,1,0],
-    estabilidade:[1,0,1,1,2,0,0,1], expressao:[0,2,0,1,0,3,0,1],
-    conhecimento:[2,2,1,1,0,0,2,0], autonomia:[0,0,0,1,3,2,0,0]
-  };
-  addVec(v, motMap[getAnswer('motivation',answers)]||[], 2.0);
-  const salMap = {
-    "muito-alto":[1,0,1,1,2,0,0,0], alto:[1,0,1,1,1,0,0,0],
-    medio:[0,0,0,0,0,1,0,0], baixo:[0,1,0,0,0,1,1,1]
-  };
-  addVec(v, salMap[getAnswer('salary',answers)]||[], 0.5);
+  // Vetor RIASEC: [Realista, Investigativo, Artístico, Social, Empreendedor, Convencional]
+  const idx = { R:0, I:1, A:2, S:3, E:4, C:5 };
+  const v = [0,0,0,0,0,0];
+  // Cada uma das 6 perguntas centrais do quiz mapeia direto pra uma letra RIASEC.
+  // O peso reflete o quanto cada pergunta é diagnóstica (calibrado via teste de
+  // cobertura em riasec/coverage-test.js -- ver nota no cabeçalho do data.js).
+  const coreQuestions = [
+    { dim:"activity",    weight:3.0 },
+    { dim:"talent",      weight:2.5 },
+    { dim:"environment", weight:2.0 },
+    { dim:"motivation",  weight:2.5 },
+    { dim:"team_role",   weight:1.5 },
+    { dim:"challenge",   weight:2.0 }
+  ];
+  coreQuestions.forEach(({dim,weight}) => {
+    const letter = getAnswer(dim, answers);
+    if (letter && idx[letter] !== undefined) v[idx[letter]] += weight;
+  });
   return v;
-}
-
-function addVec(target, source, weight) {
-  for (let i=0;i<8;i++) target[i]+=(source[i]||0)*weight;
 }
 
 function cosineSimilarity(a,b) {
@@ -837,23 +799,23 @@ function computeScores(answers) {
     const courseDur=parseInt(c.dur);
     if(courseDur<=durPref) score+=8; else score-=(courseDur-durPref)*4;
     const mathScore={alto:10,medio:6,baixo:3,minimo:0}[mathPref]||5;
-    const mathDemand=(c.vec[0]+c.vec[3])/2;
+    const mathDemand=(c.vec[1]+c.vec[5])/2; // aproximação: Investigativo + Convencional
     score+=Math.max(0,8-Math.abs(mathScore-mathDemand));
     const salScore={"muito-alto":4,alto:3,medio:2,baixo:1}[salPref]||2;
     const courseSalScore=c.salMid>=12000?4:c.salMid>=8000?3:c.salMid>=5000?2:1;
     if(salScore===courseSalScore) score+=7;
     else if(Math.abs(salScore-courseSalScore)===1) score+=4;
     const techScore={"muito-alto":10,alto:7,moderado:4,baixo:1}[techPref]||4;
-    score+=Math.max(0,7-Math.abs(techScore-c.vec[3]));
+    score+=Math.max(0,7-Math.abs(techScore-c.vec[1])); // aproximação: dimensão Investigativo
     return {
       name,...c,
       score:Math.min(100,Math.max(0,Math.round(score))),
       breakdown:{
         perfil:Math.round(sim*100),
         duracao:courseDur<=durPref?100:Math.max(0,100-(courseDur-durPref)*40),
-        matematica:Math.round(Math.max(0,(8-Math.abs(mathScore-(c.vec[0]+c.vec[3])/2))/8)*100),
+        matematica:Math.round(Math.max(0,(8-Math.abs(mathScore-(c.vec[1]+c.vec[5])/2))/8)*100),
         salario:salScore===courseSalScore?100:Math.abs(salScore-courseSalScore)===1?57:20,
-        tecnologia:Math.round(Math.max(0,(7-Math.abs(techScore-c.vec[3]))/7)*100)
+        tecnologia:Math.round(Math.max(0,(7-Math.abs(techScore-c.vec[1]))/7)*100)
       }
     };
   });
@@ -861,28 +823,26 @@ function computeScores(answers) {
 }
 
 function buildProfileSummary(answers,userVec) {
-  const areaLabels={saude:"Ciências da Saúde",tecnologia:"Tecnologia",exatas:"Exatas/Engenharias",negocios:"Negócios",artes:"Artes e Comunicação",humanas:"Humanas",ambiental:"Ciências Ambientais"};
-  const talentLabels={analitico:"analítico",criativo:"criativo",comunicativo:"comunicativo",cientifico:"científico",organizacional:"organizacional",empatico:"empático"};
-  const motLabels={impacto:"impacto social",inovacao:"inovação tecnológica",estabilidade:"estabilidade financeira",expressao:"expressão criativa",conhecimento:"aprofundamento científico",autonomia:"autonomia profissional"};
+  const riasecNames={R:"Realista",I:"Investigativo",A:"Artístico",S:"Social",E:"Empreendedor",C:"Convencional"};
+  const riasecDesc={R:"prático e mão na massa",I:"analítico e investigativo",A:"criativo e expressivo",S:"empático e social",E:"persuasivo e articulado",C:"organizado e detalhista"};
+  const letters=["R","I","A","S","E","C"];
   const mathLabels={alto:"alta",medio:"média",baixo:"baixa",minimo:"mínima"};
   const techLabels={"muito-alto":"muito alto",alto:"alto",moderado:"moderado",baixo:"baixo"};
   const durPref=getAnswer('duration',answers);
   const durLabel=durPref==="4"?"curta (4 anos)":durPref==="5"?"padrão (5 anos)":"longa (6+ anos)";
-  const dimNames=["Exatas","Humanas","Saúde","Tecnologia","Negócios","Artes","Ambiental","Social"];
-  const maxIdx=userVec.indexOf(Math.max(...userVec));
-  return `Seu perfil combina interesse em <strong>${areaLabels[getAnswer('area',answers)]||"—"}</strong>,
-    talento <strong>${talentLabels[getAnswer('talent',answers)]||"—"}</strong>
-    e motivação por <strong>${motLabels[getAnswer('motivation',answers)]||"—"}</strong>.
+  const sorted=letters.map((l,i)=>({l,val:userVec[i]})).sort((a,b)=>b.val-a.val);
+  const top2=sorted.slice(0,2).map(x=>x.l);
+  return `Seu perfil é predominantemente <strong>${riasecNames[top2[0]]}</strong> (${riasecDesc[top2[0]]}),
+    com traços <strong>${riasecNames[top2[1]]}</strong> também fortes.
     Você tem afinidade <strong>${mathLabels[getAnswer('math',answers)]||"—"}</strong> com matemática
     e interesse <strong>${techLabels[getAnswer('tech',answers)]||"—"}</strong> em tecnologia,
     buscando uma graduação de duração <strong>${durLabel}</strong>.
-    <br><br>Sua dimensão dominante é <strong>${dimNames[maxIdx]}</strong>.
     ${buildDimBars(userVec)}`;
 }
 
 function buildDimBars(vec) {
-  const labels=["Exatas","Humanas","Saúde","Tecnologia","Negócios","Artes","Ambiental","Social"];
-  const colors=["#7c6af7","#6af7b2","#f76a6a","#6ab8f7","#f7b26a","#f76ab8","#6af7b2","#b26af7"];
+  const labels=["Realista","Investigativo","Artístico","Social","Empreendedor","Convencional"];
+  const colors=["#7c6af7","#6ab8f7","#f76ab8","#6af7b2","#f7b26a","#b26af7"];
   const maxVal=Math.max(...vec,1);
   let html='<div class="profile-dims">';
   labels.forEach((l,i)=>{
@@ -1080,10 +1040,8 @@ function getExplorarFiltered() {
     const q=state.explorarSearch.toLowerCase();
     list=list.filter(c=>c.name.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.tags.some(t=>t.toLowerCase().includes(q))||c.carreiras.toLowerCase().includes(q));
   }
-  const areaVecIdx={saude:2,exatas:0,tecnologia:3,humanas:1,negocios:4,artes:5,ambiental:6};
   if(state.explorarFilter!=="all"&&state.explorarFilter!=="salary"){
-    const idx=areaVecIdx[state.explorarFilter];
-    if(idx!==undefined) list=list.filter(c=>c.vec[idx]>=5);
+    list=list.filter(c=>c.area===state.explorarFilter);
   }
   if(state.explorarFilter==="salary") list=[...list].sort((a,b)=>b.salMid-a.salMid);
   else list=list.sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
