@@ -62,6 +62,14 @@
  *   usada pelos filtros da aba Explorar. É separado do `vec` de propósito:
  *   RIASEC mede perfil de interesse/personalidade, não área acadêmica --
  *   são coisas diferentes, mesmo que relacionadas.
+ *
+ * ATUALIZAÇÃO (mesmo dia): a pergunta "quais áreas te interessam" virou um
+ * FILTRO (não um bônus de pontos) -- se a pessoa marca uma área, só cursos
+ * daquela área aparecem, e o RIASEC decide a ordem só dentro dela. Sem área
+ * marcada (ou "nenhuma em especial"), mostra os 98 cursos pelo perfil puro.
+ * O vetor de "Ciência de Dados" também foi ajustado pra ser a média exata
+ * entre "Estatística" e "Ciências da Computação" -- reflete a descrição real
+ * do curso (mistura das duas áreas), não é mais um valor arbitrário.
  */
 
 // Preencha com a data em que a equipe de fato conferiu/atualizou os dados
@@ -147,6 +155,21 @@ const QUESTIONS = [
       { t:"Uma pessoa ou grupo precisando de ajuda",    e:"🤲", v:"S", riasec:"S" },
       { t:"Uma negociação ou decisão de alto risco",    e:"💼", v:"E", riasec:"E" },
       { t:"Uma bagunça de dados ou processos",          e:"🧮", v:"C", riasec:"C" }
+    ]
+  },
+  {
+    q: "Quais áreas mais te interessam? (escolha uma ou mais)",
+    dim: "areas_interesse",
+    multi: true,
+    opts: [
+      { t:"Saúde",        e:"🏥", v:"saude" },
+      { t:"Exatas",       e:"🔬", v:"exatas" },
+      { t:"Tecnologia",   e:"💻", v:"tecnologia" },
+      { t:"Humanas",      e:"👥", v:"humanas" },
+      { t:"Negócios",     e:"📊", v:"negocios" },
+      { t:"Artes",        e:"🎨", v:"artes" },
+      { t:"Ambiental",    e:"🌿", v:"ambiental" },
+      { t:"Ainda não sei / nenhuma em especial", e:"🤷", v:"nenhuma", exclusive:true }
     ]
   },
   {
@@ -305,7 +328,7 @@ const COURSES = {
     tags:["Programação","IA","Sistemas"]
   },
   "Ciência de Dados": {
-    vec:[2,9,1,1,3,6], area:"tecnologia",
+    vec:[2,9,1,2,3,6], area:"tecnologia",
     desc:"Análise e interpretação de grandes volumes de dados para apoio à decisão.",
     carreiras:"Cientista de dados, engenheiro de ML, analista de BI.",
     fuvest:{ac:63, ep:52, ppi:40}, notaSISU:"762.30", sisuEstimated:true,

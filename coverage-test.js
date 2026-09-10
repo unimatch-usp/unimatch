@@ -38,11 +38,15 @@ function cosineSimilarity(a,b){
   if(magA===0||magB===0) return 0;
   return dot/(Math.sqrt(magA)*Math.sqrt(magB));
 }
-function scoreAll(userVec, durPref, mathPref, techPref, salPref) {
+function scoreAll(userVec, durPref, mathPref, techPref, salPref, areasInteresse) {
   const mathScore={alto:10,medio:6,baixo:3,minimo:0}[mathPref];
   const salScore={"muito-alto":4,alto:3,medio:2,baixo:1}[salPref];
   const techScore={"muito-alto":10,alto:7,moderado:4,baixo:1}[techPref];
-  return Object.keys(COURSES).map(name=>{
+  const hasAreaFilter = areasInteresse.length>0 && !areasInteresse.includes("nenhuma");
+  const pool = hasAreaFilter
+    ? Object.keys(COURSES).filter(name=>areasInteresse.includes(COURSES[name].area))
+    : Object.keys(COURSES);
+  return pool.map(name=>{
     const c=COURSES[name];
     const sim=cosineSimilarity(userVec,c.vec);
     let score=sim*70;
@@ -58,8 +62,7 @@ function scoreAll(userVec, durPref, mathPref, techPref, salPref) {
   }).sort((a,b)=>b.score-a.score);
 }
 
-// 1) Testa as 6 combinações "puras" (todas as 6 perguntas centrais na mesma letra)
-//    cruzadas com todas as variações de math/tech/duration/salary (192 combos cada).
+const AREAS = ["saude","exatas","tecnologia","humanas","negocios","artes","ambiental"];
 const allCourses = new Set(Object.keys(COURSES));
 const rank1 = new Set();
 const top3 = new Set();
@@ -71,9 +74,19 @@ const salOpts=["muito-alto","alto","medio","baixo"];
 function testCombo(letterChoices) {
   const uv = buildUserVector(letterChoices);
   mathOpts.forEach(m=>techOpts.forEach(t=>durOpts.forEach(d=>salOpts.forEach(s=>{
-    const ranked = scoreAll(uv, d, m, t, s);
+    // sem filtro de área (equivalente a "nenhuma em especial")
+    let ranked = scoreAll(uv, d, m, t, s, []);
     rank1.add(ranked[0].name);
     ranked.slice(0,3).forEach(r=>top3.add(r.name));
+    // com cada área isolada selecionada (o cenário que mais importa agora,
+    // já que a área virou filtro rígido)
+    AREAS.forEach(a=>{
+      ranked = scoreAll(uv, d, m, t, s, [a]);
+      if(ranked.length){
+        rank1.add(ranked[0].name);
+        ranked.slice(0,3).forEach(r=>top3.add(r.name));
+      }
+    });
   }))));
 }
 
